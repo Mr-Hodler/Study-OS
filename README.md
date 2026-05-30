@@ -19,30 +19,54 @@ Built to fix a common problem: generic AI writing stays shallow and high-level. 
 
 ## Repository layout
 
+This repo is a self-contained Claude plugin (and a one-plugin marketplace), so it installs directly.
+
 ```
-Study-OS-Repo/
+Study-OS-Repo/                           # repo root = the plugin AND the marketplace
+├── .claude-plugin/
+│   ├── plugin.json                      # plugin manifest (name, version, metadata)
+│   └── marketplace.json                 # marketplace manifest listing this plugin
 ├── README.md
 ├── LICENSE
 ├── .gitignore
 └── skills/
     └── study-os/
-        ├── SKILL.md                      # orchestrator: triggers, modes, workflow
+        ├── SKILL.md                     # orchestrator: triggers, modes, workflow
         └── references/
-            ├── writing-standards.md      # voice, formatting, visual structure
-            ├── page-architecture.md      # page skeleton + exact Notion block syntax
-            ├── notion-operations.md      # read/write Notion, schema detection, DB mgmt
-            ├── research-protocol.md       # source quality, dating, videos, images, depth
-            ├── classification.md         # Theory vs Practice vs Real Setup
-            └── reformat-mode.md          # strict text-invariant restructuring
+            ├── writing-standards.md     # voice, formatting, visual structure
+            ├── page-architecture.md     # page skeleton + exact Notion block syntax
+            ├── notion-operations.md     # read/write Notion, schema detection, DB mgmt
+            ├── research-protocol.md     # source quality, dating, videos, images, depth
+            ├── classification.md        # Theory vs Practice vs Real Setup
+            ├── reformat-mode.md         # strict text-invariant restructuring
+            └── output-targets.md        # how the content model renders to Notion vs PDF/doc
 ```
 
 ## Install
 
-### Cowork / Claude desktop
-Place the `skills/study-os/` folder into your Cowork skills directory (or add this repo as a plugin/marketplace source). Connect the Notion connector. The skill triggers on phrases like "build the study page", "structure this study page", "research this topic in Notion", "reformat this page", or "explain this concept".
+Connect the Notion connector first (the skill reads and writes Notion). Then install the plugin.
 
-### Claude Code
-Add `skills/study-os/` under your project or user skills directory so `SKILL.md` is discoverable. Ensure a Notion MCP connector is configured.
+### Claude Code (or Cowork) via marketplace
+
+```
+/plugin marketplace add Mr-Hodler/Study-OS
+/plugin install study-os@study-os
+```
+
+The first command registers this repo as a marketplace; the second installs the `study-os` plugin from it. After install, the skill is discovered automatically.
+
+### Manual / local
+
+Clone the repo and add it as a local marketplace, or drop the `skills/study-os/` folder into your skills directory so `SKILL.md` is discoverable:
+
+```
+/plugin marketplace add /path/to/Study-OS-Repo
+/plugin install study-os@study-os
+```
+
+### Triggers
+
+The skill activates on phrases like "build the study page", "structure this study page", "research this topic in Notion", "make a study PDF about X", "reformat this page", or "explain this concept".
 
 ## Usage
 

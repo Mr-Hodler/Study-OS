@@ -43,24 +43,25 @@ Common colors: `gray_bg` (neutral/meta), `blue_bg` (insight/purpose), `green_bg`
 ### Detail
 ```
 
-### Chapter as toggle heading
-A chapter is a collapsible heading. Use a toggle whose summary is the chapter heading:
+### Chapter as toggle
+A chapter is a collapsible toggle. Verified rendering: put the chapter title in the `<summary>` as **bold text** (a `###` inside `<summary>` does not render as a heading reliably). Indent the chapter body one level inside the toggle:
 ```
 <details>
-<summary>### Chapter - Title</summary>
+<summary>**Chapter - Title**</summary>
 
-**Summary**
-- one-line takeaway
-- one-line takeaway
+	**Summary**
+	- one-line takeaway
+	- one-line takeaway
 
-**Content**
-- structured claim
-- structured claim
+	**Content**
+	- structured claim
+	- structured claim
 
-**Sources**
-- [Descriptive title, Mar 2026](https://example.com)
+	**Sources**
+	- [Descriptive title, Mar 2026](https://example.com)
 </details>
 ```
+Avoid `->` arrow notation inside Notion text; the `>` gets escaped. Write "then" or use a real diagram instead.
 
 ### Tables
 ```
@@ -118,7 +119,7 @@ print("hello")
 ---
 
 <details>
-<summary>### Chapter - [Title]</summary>
+<summary>**Chapter - [Title]**</summary>
 
 **Summary**
 - [takeaway]
@@ -134,7 +135,7 @@ print("hello")
 </details>
 
 <details>
-<summary>### Chapter - [Title]</summary>
+<summary>**Chapter - [Title]**</summary>
 ...
 </details>
 

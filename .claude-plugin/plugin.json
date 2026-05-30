@@ -1,0 +1,19 @@
+{
+  "name": "study-os",
+  "version": "1.0.0",
+  "description": "Builds deep, expert-level study and research material in Notion or as PDF/doc from rough keywords and notes, and manages the underlying study database. Lean, consistent, source-backed pages with chapters, tables, columns, toggles, and formatted links.",
+  "author": {
+    "name": "Aron Clementi"
+  },
+  "homepage": "https://github.com/Mr-Hodler/Study-OS",
+  "repository": "https://github.com/Mr-Hodler/Study-OS",
+  "license": "MIT",
+  "keywords": [
+    "notion",
+    "study",
+    "research",
+    "knowledge-management",
+    "note-taking",
+    "pdf"
+  ]
+}
