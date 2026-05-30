@@ -27,14 +27,17 @@ Study-OS-Repo/                           # repo root = the plugin AND the market
 │   ├── plugin.json                      # plugin manifest (name, version, metadata)
 │   └── marketplace.json                 # marketplace manifest listing this plugin
 ├── README.md
-├── LICENSE
+├── CHANGELOG.md                         # version history (Keep a Changelog)
+├── CONTRIBUTING.md                      # how to propose changes
+├── LICENSE                              # MIT
 ├── .gitignore
+├── study-os.skill                       # packaged skill for one-click install
 └── skills/
     └── study-os/
         ├── SKILL.md                     # orchestrator: triggers, modes, workflow
         └── references/
             ├── writing-standards.md     # voice, formatting, visual structure
-            ├── page-architecture.md     # page skeleton + exact Notion block syntax
+            ├── page-architecture.md     # page skeleton + verified Notion block syntax
             ├── notion-operations.md     # read/write Notion, schema detection, DB mgmt
             ├── research-protocol.md     # source quality, dating, videos, images, depth
             ├── classification.md        # Theory vs Practice vs Real Setup
@@ -42,11 +45,19 @@ Study-OS-Repo/                           # repo root = the plugin AND the market
             └── output-targets.md        # how the content model renders to Notion vs PDF/doc
 ```
 
+## Setup
+
+Connect the **Notion connector** before first use: the skill reads the source page, detects the database schema, and writes back. For PDF/doc output a document tool is also used. No configuration files are needed; the skill adapts to whatever workspace and schema it finds.
+
 ## Install
 
-Connect the Notion connector first (the skill reads and writes Notion). Then install the plugin.
+Pick one of the three options below.
 
-### Claude Code (or Cowork) via marketplace
+### Option A - one-click `.skill` (Cowork)
+
+Open `study-os.skill` and use **Save skill**. This installs the skill directly without touching a marketplace.
+
+### Option B - Claude Code (or Cowork) via marketplace
 
 ```
 /plugin marketplace add Mr-Hodler/Study-OS
@@ -55,7 +66,7 @@ Connect the Notion connector first (the skill reads and writes Notion). Then ins
 
 The first command registers this repo as a marketplace; the second installs the `study-os` plugin from it. After install, the skill is discovered automatically.
 
-### Manual / local
+### Option C - manual / local
 
 Clone the repo and add it as a local marketplace, or drop the `skills/study-os/` folder into your skills directory so `SKILL.md` is discoverable:
 
@@ -80,6 +91,10 @@ Explain <concept> simply.
 
 For theory pages the skill proposes a chapter index and source list first, then writes; say "autonomous" to skip the confirmation.
 
+## Versioning and contributing
+
+Version history lives in [CHANGELOG.md](CHANGELOG.md). To propose changes, see [CONTRIBUTING.md](CONTRIBUTING.md). The project follows [Semantic Versioning](https://semver.org/).
+
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). Copyright (c) 2026 Aron Clementi.
