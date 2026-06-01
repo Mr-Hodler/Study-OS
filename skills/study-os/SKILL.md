@@ -9,7 +9,7 @@ description: >-
   concept", "add a study entry", "update my study index", or points to a Notion page/database or
   a document for study, research, theory, notes, deep-dives, or article writing. Produces clean,
   lean, compact, consistently structured material with formatted links (never bare URLs), tables,
-  columns, toggles, diagrams, examples, image suggestions, chapters as toggles, sources only where
+  columns, diagrams, examples, image suggestions, chapters as real headings (toggles only for minor detail), sources only where
   they add weight, and a synced database row. Input-agnostic (keywords, notes, dumps, an existing
   page) and output-agnostic (Notion or PDF/doc); detects any Notion database schema at runtime.
   Never uses em dashes in any output.
@@ -34,6 +34,7 @@ Rules that override everything else:
 3. **Formatted links only.** Embed every link inside descriptive words. **Never a bare or dirty URL** in any output.
 4. **Sources where they add weight, not everywhere.** Cite a specific quote, a statistic, an important claim, or a contested point. Do NOT footnote every line: the goal is a sharp study page, not a thesis. Keep a short Sources block per chapter or at the end.
 5. **Consistency is the product.** The same activity type always produces the same shape. A reader should recognize a Study OS page instantly.
+6. **Give it soul.** A correct page that reads like a generated template is a failure. Open chapters with a hook, vary the structure to fit the material, write like an expert talking to a smart peer, and use the signpost system (💡 💬 🔑 ⚠️ 📚). Personality lives in framing and selection, never in padding. See `references/writing-standards.md` -> "Soul".
 
 ### Hard formatting bans (every mode, every output)
 
@@ -85,13 +86,17 @@ Run these steps in order. Do not skip the index confirmation for theory pages un
 ### 5. Write the page
 - Build with the exact block syntax and architecture in `references/page-architecture.md` and `references/notion-operations.md`.
 - Page skeleton (every page):
-  - Meta callout (gray): `Last Updated` + `Related Pages`.
-  - Purpose callout (blue): **Page Purpose** + **Non-scope** + **Related Pages**.
-  - `# Main Topic` then a horizontal rule.
-  - Chapters as **toggle headings**, each: `Chapter - Title` → **Summary** bullets → **Content** → chapter Sources/Links/Glossary.
-  - Tables for 3+ options/dimensions; 2-column layouts for short parallel blocks to save space; diagrams/flowcharts for processes.
-  - Image suggestions where they aid learning.
-  - A short **Sources** (and optional **Glossary** / **Links**) section at the end of each chapter or the page.
+  - Meta callout (gray): `Last Updated` + `Related Pages` + **level** (beginner/intermediate/advanced) + **reading time**.
+  - Purpose callout (blue): **Page Purpose** + **Non-scope** + signpost legend.
+  - Intro hook paragraph.
+  - **Sub-pages index near the top** (for hubs): a `## Deep dives` table or 2-column block, index-style, so the map is visible immediately.
+  - `# Main Topic` then a horizontal rule, then `<table_of_contents/>`.
+  - Chapters as **real `## H2` headings** (H3 for sub-points), each opening with a one-line hook then substance shaped to the material. Toggles only for minor/appendix detail, never a whole chapter.
+  - Use the **signpost system** for soul and scannability: 💡 Key idea, 💬 Example, 🔑 Insight, ⚠️ Watch out, 📚 Go deeper.
+  - **Exploit Notion structure aggressively:** tables for comparisons/matrices/timelines, columns for parallel blocks, callouts for key points. A page of only bullets is under-built.
+  - **Real visuals, not placeholders (see `references/media-assets.md`):** Mermaid code blocks for diagrams/schemas (render natively), `![alt](url)` for clean public images with attribution, a generated chart file + image slot only when needed, and a short `## Watch` video list. Never use `<image>`/`<embed>` tags.
+  - **Per-chapter depth:** hook, 💡 key idea, substance, 💬 numeric example, ⚠️ misconception where one exists, 🧭 open question for meaty topics, 📚 go deeper.
+  - A short **Sources** (and optional **Glossary** / **Links**) section at the end of each chapter or the page; cite generously where claims, data, or quotes appear.
 - Hard style rules: **no em dashes** in your own writing; bold the label before a colon in bullets; embed links in descriptive text; gray=neutral, blue=insight, green=positive outcome.
 - Write the content into Notion via `notion-update-page` (`insert_content` / `update_content` / `replace_content`). Preserve existing child pages when replacing - see `references/notion-operations.md`.
 
@@ -105,6 +110,7 @@ Run these steps in order. Do not skip the index confirmation for theory pages un
 - Every link is formatted descriptive text, not a bare URL. Examples present for non-obvious concepts. Sources attached to quotes/key data but not over-applied.
 - One bullet style per section; headings consistent and not duplicated; tables valid; no stray numbering; layout is lean (columns/toggles/tables used where they help).
 - Confirm the page matches the standard skeleton and that the DB row is coherent with reality.
+- **Run the full QA rubric in `references/qa-review.md`** and fix anything that fails before presenting.
 
 ---
 
@@ -136,3 +142,5 @@ Read these as needed; they hold the precise rules so output is identical every t
 - `references/classification.md` - Theory vs Practice vs Real Setup decision rules.
 - `references/reformat-mode.md` - strict text-invariant restructuring rules.
 - `references/output-targets.md` - how the content model renders to Notion vs PDF/doc.
+- `references/media-assets.md` - verified policy for Mermaid, images by URL, generated charts, and videos.
+- `references/qa-review.md` - the self-review rubric to run before presenting.

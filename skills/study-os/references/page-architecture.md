@@ -4,13 +4,62 @@ The fixed skeleton every Study OS page follows, plus the exact Notion-flavored M
 
 ## The skeleton (in order)
 
-1. **Meta callout** (gray background): `Last Updated` + `Related Pages`.
-2. **Purpose callout** (blue background): `Page Purpose`, `Non-scope`, `Related Pages`.
-3. Optional `Sub Pages` list and `Other Sources` list.
-4. Optional `Key Insight` / `Note` / `Warning` callouts where relevant.
-5. `# Main Topic` followed by a horizontal rule `---`.
-6. **Chapters** as toggle headings, each: `Chapter - Title` → `Summary` bullets → `Content` → chapter `Sources` / `Links` / `Glossary`.
-7. Page-level `Sources` (+ optional `Glossary`) at the end if not per-chapter.
+1. **Meta callout** (gray background): `Last Updated` + `Related`.
+2. **Purpose callout** (blue background): `Page Purpose`, `Non-scope`, and a one-line **What you get here** (the signpost legend).
+3. A warm one-paragraph **intro with a hook** (see the soul rules in `writing-standards.md`).
+4. **Sub-pages index, near the top.** If the page is a hub with sub-pages, put the index right here as a `## Deep dives` table or a 2-column block: one row per sub-page, with a one-line focus and the link. The reader sees the map before the content, not buried at the bottom.
+5. `# Page Topic`, a horizontal rule `---`, then `<table_of_contents/>`.
+6. **Chapters as real `## H2` headings** (H3 for sub-points). Each chapter opens with a one-line hook, then substance shaped to the material using the signposts (💡 key idea, 💬 example, 🔑 insight, ⚠️ watch out, 📚 go deeper). Chapters are NOT toggles.
+7. Page-level `## Glossary`, `## Resources`, `## Sources` at the end.
+
+**Toggles are for minor content only:** long tangents, raw data dumps, extended derivations, or appendix material. Never wrap a whole chapter in a toggle.
+
+## Use Notion's structure aggressively (not just text)
+
+A page that is only headings and bullets wastes the medium. Reach for these whenever the material fits:
+
+- **Tables** for any comparison or matrix: options vs dimensions, timelines (date / milestone), families (item / how it works / strength / weakness), pros vs cons. If you find yourself writing parallel bullets that all share the same fields, it is a table.
+- **Columns** for two parallel blocks of similar weight: open vs closed, theory vs practice, before vs after, two competing positions. Saves vertical space and reads faster.
+- **Schemas / diagrams.** Prefer a real image (see image slots below). When an image is overkill, draw a simple flow as ASCII inside a fenced code block (code is rendered literally, so arrows are safe there):
+```
+Pretraining  ->  SFT  ->  RLHF / DPO  ->  aligned assistant
+```
+- **Callouts** to make a key insight, warning, or definition pop out of the flow.
+
+## Visuals: prefer real ones over placeholders
+
+Full rules in `references/media-assets.md`. Order of preference:
+
+1. **Mermaid** for any diagram/schema (renders natively):
+```mermaid
+flowchart LR
+  A["Input"] --> B["Step"] --> C["Output"]
+```
+2. **Image by URL** when a clean public figure exists (Wikimedia/official), with attribution:
+```
+![Descriptive alt](https://upload.wikimedia.org/.../figure.png)
+*Source: [Wikimedia Commons, CC BY-SA](https://commons.wikimedia.org/...)*
+```
+3. **Generated asset + image slot** only when a precise chart is needed and no clean URL exists. Generate the file, present it, and mark the spot:
+```
+<callout icon="🖼️" color="yellow_bg">
+	**Drop image here:** `filename.png` (generated, see chat) — **Shows:** [what it depicts].
+</callout>
+```
+Do NOT use `<image>` or `<embed>` tags; the connector renders them as literal text. Videos go in a short `## Watch` list of links.
+
+## Chapter depth (what a good chapter contains)
+
+Shape varies, but a strong chapter usually has: a one-line hook, 💡 a key idea, the substance (bullets/table/columns/diagram), 💬 a concrete or numeric example, ⚠️ a common misconception where one exists, and 📚 go deeper. For meaty topics add a 🧭 **open question / frontier** line. Keep a page-level **level** (beginner / intermediate / advanced) and **reading time** in the meta callout.
+
+## Signpost system (the soul layer)
+
+Use these consistently so every page feels familiar and scannable. Apply as inline bold labels or small callouts:
+- 💡 **Key idea** - the core insight in one or two lines.
+- 💬 **Example** - a concrete, real example or mini-scenario.
+- 🔑 **Insight** - a sharp, memorable rule of thumb.
+- ⚠️ **Watch out** - a common mistake, risk, or misconception.
+- 📚 **Go deeper** - sources and the deep-dive sub-page.
 
 ## Block syntax (Notion-flavored Markdown)
 
@@ -43,25 +92,33 @@ Common colors: `gray_bg` (neutral/meta), `blue_bg` (insight/purpose), `green_bg`
 ### Detail
 ```
 
-### Chapter as toggle
-A chapter is a collapsible toggle. Verified rendering: put the chapter title in the `<summary>` as **bold text** (a `###` inside `<summary>` does not render as a heading reliably). Indent the chapter body one level inside the toggle:
+### Chapter as a heading (default)
+A chapter is an `## H2` heading with a hook line, then substance. Example shape (vary it per topic):
+```
+## Tokenization, the model's alphabet
+
+Models never see words. They see tokens, and that single fact explains cost, context limits, and why they fumble rare strings.
+
+💡 **Key idea:** text is split into subword fragments mapped to integer IDs, then to learned vectors.
+
+- **Why subwords:** whole-word vocabularies explode and break on new words; BPE splits "tokenization" into `token` + `ization`.
+- **Why it matters:** pricing, latency, and the context window are all counted in tokens, not words.
+
+💬 **Example:** "1 token is about 0.75 English words, so a 1,000-word memo is roughly 1,300 tokens."
+
+📚 **Go deeper:** [BPE, Sennrich et al., 2016](https://arxiv.org/abs/1508.07909)
+```
+
+### Toggle (minor / appendix content only)
+Use a toggle to tuck away a long tangent, a raw table, or extended detail. Put the label in `<summary>` as **bold text** and indent the body:
 ```
 <details>
-<summary>**Chapter - Title**</summary>
+<summary>**Appendix: full derivation**</summary>
 
-	**Summary**
-	- one-line takeaway
-	- one-line takeaway
-
-	**Content**
-	- structured claim
-	- structured claim
-
-	**Sources**
-	- [Descriptive title, Mar 2026](https://example.com)
+	- step by step detail that would clutter the main flow
 </details>
 ```
-Avoid `->` arrow notation inside Notion text; the `>` gets escaped. Write "then" or use a real diagram instead.
+Avoid `->` arrow notation inside Notion text; the `>` gets escaped. Write "then" or build a real diagram instead.
 
 ### Tables
 ```
@@ -115,32 +172,33 @@ print("hello")
 	- <mention-page url="..."/> – [relationship + difference]
 </callout>
 
-# [Main Topic]
+# [Page Topic]
 ---
+<table_of_contents color="gray"/>
 
-<details>
-<summary>**Chapter - [Title]**</summary>
+## [Chapter Title]
 
-**Summary**
-- [takeaway]
+[one-line hook that frames why this matters]
 
-**Content**
-- [dense, expert-level structured content]
-- [short paragraph only when a complex point needs full explanation]
+💡 **Key idea:** [core insight in one or two lines]
+
+- **[label]:** [dense, expert-level point]
+- **[label]:** [dense, expert-level point]
+
+💬 **Example:** [a concrete, real example]
 
 > Image suggestion: [what diagram/image would help here]
 
-**Sources**
-- [Title, Month Year](URL)
-</details>
+📚 **Go deeper:** [Title, Month Year](URL)
 
-<details>
-<summary>**Chapter - [Title]**</summary>
-...
-</details>
+## [Next Chapter Title]
+[hook] ... shape the substance to fit the material (table, steps, two positions, etc.)
 
 ## Glossary
 - **Term:** definition.
+
+## Resources
+- [Descriptive title](URL)
 
 ## Sources
 - [Title, Month Year](URL)
@@ -148,6 +206,6 @@ print("hello")
 
 ## Notes on chapters
 
-- Prefer chapters when content is long or naturally segmented. For short pages, normal H2 headings are fine; reserve toggle headings for major chapters.
-- Do not deep-nest toggles unless the structure already requires it.
+- Chapters are headings, not toggles. Vary the internal shape per chapter; do not repeat one rigid template.
+- Reserve toggles for minor or appendix content. Do not deep-nest toggles.
 - Keep operational timelines/checklists in an appendix; keep the main chapters conceptual for theory pages.

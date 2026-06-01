@@ -10,6 +10,22 @@ These are the non-negotiable rules for voice, formatting, and visual structure. 
 - Analytical, but creative when it helps. Suggest improvements; say when something is wrong and offer an out-of-the-box alternative.
 - **Concise is not shallow.** Depth, completeness, and insight are required. Avoid generic, low-quality writing at all costs.
 
+## Soul: make pages feel alive
+
+A correct page that reads like a generated template is a failure. Pages must have a point of view and a human rhythm. Rules:
+
+- **Open with a hook, not boilerplate.** The first line of a chapter should say why this matters or frame a tension, then deliver the substance. Avoid "This chapter covers..." openings.
+- **Vary the structure.** Do not repeat an identical "Summary / Content" skeleton in every chapter. Let the shape follow the material: a comparison becomes a table, a process becomes numbered steps, a debate becomes two short positions, a definition-heavy topic becomes tight bullets.
+- **Use a consistent signpost system** so readers know what they are looking at. Recommended icons, used as inline bold labels or small callouts:
+  - 💡 **Key idea** - the core insight in one or two lines.
+  - 💬 **Example** - a concrete, real example or mini-scenario.
+  - 📚 **Go deeper** - sources and the deep-dive sub-page.
+  - 🔑 **Insight / rule of thumb** - a sharp takeaway worth remembering.
+  - ⚠️ **Watch out** - a common mistake, risk, or misconception.
+- **Write like an expert talking to a smart peer**, not an encyclopedia. Confident, concrete, occasionally opinionated where the field has a clear consensus. Name the debate where it is genuinely contested.
+- **Concrete beats abstract.** Prefer a real number, a named tool, a dated event, or a worked example over a generic statement.
+- This soul layer never excuses padding. Stay dense; personality lives in framing and selection, not in extra words.
+
 ## Visual structure
 
 - Open each page with a **callout block (blue background)** stating purpose and context.
@@ -54,13 +70,15 @@ These are the non-negotiable rules for voice, formatting, and visual structure. 
 - **Language:** English by default.
 - **Terminology:** use only the word **"Chapter"**.
 - **Chapter titles:** never numbered ("Chapter - Title", not "Chapter 1 - Title"), unless a real numeric/priority order exists.
-- **Toggles:** each Chapter is a **toggle heading**. Minimize non-essential toggles otherwise.
+- **Chapters are real headings (H2), not toggles.** Use H1 for the page topic, H2 for chapters, H3 for sub-points. Reserve toggles for minor or appendix content only (long tangents, raw data, extended examples). A page that is a wall of collapsed toggles is wrong.
 - **Content:** concise and information-dense, while expert-level, deep, detailed, and complete. Include the full set of arguments and necessary information. Prioritize insight and completeness.
 - **Structure vs depth:** bullets to structure arguments/claims; short paragraphs (max 5–7 lines) only to fully explain complex points.
 - **Meta:** keep a small meta callout at the top with Last Updated + Related Pages.
-- **Chapter structure:** `Chapter - Title` → **Summary** bullets → **Content**.
-- **Sources / Links / Glossary:** keep a short section at the end of each chapter or the page.
-- **Images:** suggest where an external image/diagram would aid learning.
+- **Chapter structure:** an `## H2` heading, a one-line hook, then substance shaped to the material (use the 💡 key idea / 💬 example / 🔑 insight / 📚 go deeper signposts). Do not force every chapter into the same skeleton.
+- **Sub-pages index at the top:** if the page has sub-pages, list them index-style near the top (a `## Deep dives` table or 2-column block), not at the bottom.
+- **Exploit Notion structure:** use tables for comparisons/matrices/timelines, columns for parallel blocks, callouts for key points, and ASCII flows in code blocks for simple schemas. A page of only bullets is under-built.
+- **Sources / Links / Glossary:** keep a short section at the end of each chapter or the page; cite generously where claims, data, or quotes appear.
+- **Images:** add an explicit **image slot** callout (🖼️ what / why / source) exactly where a visual belongs. Study OS does not upload images, so tell the user precisely what to add and where.
 
 ## Page intro discipline (anti-duplication)
 

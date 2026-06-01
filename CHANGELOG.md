@@ -2,6 +2,35 @@
 
 All notable changes to Study OS are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.3.0] - 2026-06-01
+
+### Added
+- **Verified media policy** (`media-assets.md`): Mermaid code blocks for diagrams/schemas (render natively in Notion), `![alt](url)` images by clean public URL with attribution, generated chart files plus image slots, and curated `## Watch` video lists. Confirmed via live testing that `<image>`/`<embed>` tags do NOT work.
+- **QA self-review rubric** (`qa-review.md`) that the skill runs before presenting a page.
+- **Per-chapter depth**: hook, key idea, numeric example, ⚠️ misconception, 🧭 open question, and page-level level + reading time in the meta.
+- **Study Index database**: optional `Status` (To learn / Learning / Reviewed / Mastered) and `Next review` (date) properties for a lightweight spaced-repetition workflow.
+
+### Changed
+- `page-architecture.md`, `writing-standards.md`, and `SKILL.md` updated to require real visuals over placeholders, per-chapter depth, and the QA pass.
+
+## [1.2.0] - 2026-05-31
+
+### Added
+- **Sub-pages index at the top** of hub pages (a `## Deep dives` table plus the live page cards), so the map is the first thing a reader sees.
+- **Mandatory use of Notion structure:** tables for comparisons, matrices, and timelines; columns for parallel blocks; ASCII flows in code blocks for simple schemas.
+- **Image slots:** an explicit 🖼️ callout (what / why / source) placed exactly where a visual belongs, since the skill cannot upload images itself.
+- Guidance to cite more generously and to deepen content.
+
+### Changed
+- Updated `page-architecture.md`, `writing-standards.md`, and `SKILL.md` with the above; rebuilt the page template around an index-first, table-and-column-rich layout.
+
+## [1.1.0] - 2026-05-30
+
+### Changed
+- **Chapters are now real headings (H1/H2/H3), not toggles.** Toggles are reserved for minor or appendix content only. A page is no longer a wall of collapsed sections.
+- **Added a "soul" layer** so pages read like an expert talking to a smart peer, not a generated template: hook openings, structure varied to fit the material, and a consistent signpost system (💡 key idea, 💬 example, 🔑 insight, ⚠️ watch out, 📚 go deeper).
+- Updated `writing-standards.md`, `page-architecture.md`, and `SKILL.md` to match; reworked the page template around headings and signposts.
+
 ## [1.0.0] - 2026-05-30
 
 ### Added
