@@ -56,8 +56,28 @@ Group curated videos in a short section so they are easy to find:
 ```
 Pick 1 to 3 genuinely high-quality videos (lectures, official talks, top explainers). Note to the user that pasting the link on its own line in Notion offers a player embed.
 
+## Notion handoff (what the app does better than the API)
+
+Mermaid is the default for diagrams because it is cheap, native, and consistent. Do NOT route core writing or diagram generation through Notion AI: it reintroduces the shallow, inconsistent output Study OS exists to replace, and it cannot be invoked through this connector anyway.
+
+There are a few things the Notion app genuinely does better than the API. For these, the skill cannot do the action itself, so it leaves a precise **handoff callout** telling the user exactly what to do, with a ready-to-paste prompt where useful:
+
+- **Upload a real image** (the API cannot upload files). 
+- **Convert a video link into a player embed** (paste the URL on its own line and pick "Embed").
+- **Native database charts** for data that lives in a Notion database (Notion's own chart blocks beat a static image).
+- **Whiteboard / visual mind map** when the user wants to drag nodes by hand.
+
+Handoff callout pattern:
+```
+<callout icon="🛠️" color="blue_bg">
+	**Do this in Notion:** [the one action, e.g. "upload chart.png here" or "turn this link into an embed"]
+	**Paste into Notion AI (optional):** "[a concrete, ready-to-run prompt if the task suits Notion AI, e.g. 'Create a mind map of the six AI parts on this page']"
+</callout>
+```
+Use handoffs sparingly and only for these app-only tasks. Everything else (flows, schemas, mind maps as diagrams) is Mermaid, made here.
+
 ## Hard rules
 
-- A diagram that can be Mermaid should be Mermaid, not an image slot.
+- A diagram that can be Mermaid should be Mermaid, not an image slot or a Notion AI request.
 - Every embedded image carries attribution.
 - Never invent an image URL. If unsure it resolves and is license-clean, use Mermaid or an image slot instead.

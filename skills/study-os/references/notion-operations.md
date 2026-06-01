@@ -33,6 +33,13 @@ To create a brand-new study page under the database: `notion-create-pages` with 
 
 Always use the block syntax in `page-architecture.md`. Do not guess syntax; mirror a known good page if unsure.
 
+## Edit efficiency (save tokens, reduce risk)
+
+- **New page:** write it in a single `create-pages` call. Do not create empty then rebuild.
+- **Existing page, small change:** use `update_content` (surgical search-and-replace) or `insert_content`. Re-sending the whole page as `replace_content` wastes tokens and forces you to re-include every preserved block (child pages, file attachments), which is where mistakes happen.
+- **Reserve `replace_content`** for a genuine full restructure. When you must use it, include every child page (`<page url=...>`) and attachment (`<file src=...>`) in the new content so nothing is deleted.
+- Prefer one well-planned write over several iterative rewrites of the same page.
+
 ## Database management
 
 After the page content is written:

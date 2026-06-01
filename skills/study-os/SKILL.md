@@ -98,7 +98,8 @@ Run these steps in order. Do not skip the index confirmation for theory pages un
   - **Per-chapter depth:** hook, 💡 key idea, substance, 💬 numeric example, ⚠️ misconception where one exists, 🧭 open question for meaty topics, 📚 go deeper.
   - A short **Sources** (and optional **Glossary** / **Links**) section at the end of each chapter or the page; cite generously where claims, data, or quotes appear.
 - Hard style rules: **no em dashes** in your own writing; bold the label before a colon in bullets; embed links in descriptive text; gray=neutral, blue=insight, green=positive outcome.
-- Write the content into Notion via `notion-update-page` (`insert_content` / `update_content` / `replace_content`). Preserve existing child pages when replacing - see `references/notion-operations.md`.
+- Write the content into Notion via `notion-update-page`. **Prefer surgical `insert_content` / `update_content` over full `replace_content`** to save tokens and avoid dropping preserved blocks; build new pages in one `create-pages` call (see `references/notion-operations.md`).
+- For app-only tasks (uploading an image, converting a video to an embed, native database charts, a hand-drawn mind map), leave a **Notion handoff callout** rather than trying to do it via the API (see `references/media-assets.md`). Do not delegate core writing or diagrams to Notion AI.
 
 ### 6. Update the database
 - Set/refresh the row's properties from the schema you read: title, category, scope (Theory/Practice), a 1–2 line content description, reading order, page URL, and Done as appropriate.

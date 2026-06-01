@@ -2,6 +2,15 @@
 
 All notable changes to Study OS are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2026-06-01
+
+### Added
+- **Edit-efficiency rule** (`notion-operations.md`): prefer surgical `insert_content` / `update_content` over full `replace_content`, and write new pages in one `create-pages` call, to save tokens and avoid dropping preserved blocks.
+- **Notion handoff pattern** (`media-assets.md`): for app-only tasks (image upload, video embed, native database charts, hand-drawn mind map), emit a precise handoff callout with an optional ready-to-paste prompt, instead of routing core writing or diagrams through Notion AI.
+
+### Notes
+- Mermaid remains the default for diagrams: cheap, native, deterministic, and fully under the skill's control.
+
 ## [1.3.0] - 2026-06-01
 
 ### Added
