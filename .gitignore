@@ -16,3 +16,11 @@ Thumbs.db
 node_modules/
 dist/
 *.log
+
+# Generated study assets belong in the outputs folder, not the repo.
+# (Charts/diagrams the skill generates for a Notion page are deliverables, not source.)
+/*.png
+/*.jpg
+/*.jpeg
+!assets/**
+

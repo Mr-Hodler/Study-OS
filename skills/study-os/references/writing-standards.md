@@ -33,7 +33,7 @@ A correct page that reads like a generated template is a failure. Pages must hav
 - **Never use an em dash (—) anywhere, in any output, in any mode.** Not in Notion pages, not in PDFs/documents, not in chat. Replace with a comma, a colon, parentheses, or split into two sentences. The only exception is verbatim quoted source text, which is preserved exactly; do not introduce em dashes of your own.
 - Heading hierarchy is strict: **H1** = main topic, **H2** = subsections, **H3** = details.
 - **Do not number titles or chapters** unless the items have a real numeric/priority order.
-- Embed hyperlinks inside descriptive text. **No bare URLs.**
+- Embed hyperlinks inside descriptive text. **No bare URLs.** Also avoid putting a dotted domain (e.g. "Distill.pub", "arxiv.org") in the visible link text: Notion auto-links it and creates a broken double-link. Use plain words like "Distill" or "the arXiv paper".
 - Cite sources whenever referencing official data, statistics, or academic/industry material.
 - Apply color coding consistently: **gray** = neutral info, **blue** = insight, **green** = positive outcome/recommended practice.
 - Keep similar content types (frameworks, processes, analyses) in the **same format** every time.

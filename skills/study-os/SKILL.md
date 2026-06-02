@@ -54,6 +54,7 @@ This skill has three modes. Pick based on the request.
 | **Build** (default) | "build / structure / research / deepen this study page", "create a page about X" | Reads inputs, researches, writes the full page, updates the DB row. |
 | **Reformat** | "reformat", "clean up the structure", "make this skimmable" | Restructures blocks WITHOUT changing any words. See `references/reformat-mode.md`. |
 | **Explain** | "explain this", "ELI5 this concept" | Answers in chat only (does NOT edit the page). Short, plain-language explanation of a selection/concept. |
+| **Refresh** | "refresh this page", "update the facts", "is this still current?" | Re-verify only the time-sensitive facts (dated claims, prices, versions, leaders, laws) on an existing page via search, and surgically update just those with `update_content`. Do NOT rewrite the whole page. Update the meta Last Updated date. |
 
 If the request is ambiguous, default to **Build**.
 

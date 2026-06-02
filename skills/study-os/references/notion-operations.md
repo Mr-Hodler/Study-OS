@@ -51,6 +51,17 @@ After the page content is written:
    - Date properties split into `date:{prop}:start`, optional `date:{prop}:end`, `date:{prop}:is_datetime`.
 2. Keep **reading order** coherent with siblings if the property exists.
 3. Enforce **anti-duplication**: if a sibling covers part of the topic, record the difference in Non-scope / Related Pages instead of duplicating content.
+4. **Learning workflow (if the schema has them):**
+   - **Status** (To learn / Learning / Reviewed / Mastered): set when a page is created or studied.
+   - **Next review** (date): set a spaced interval after study (Learning -> a few days, Reviewed -> ~2 weeks, toward Mastered -> ~1 month). A daily scheduled task can surface pages due for review.
+   - **Prerequisites** (self-relation): link a page to the study items it should be read after, building a prerequisite graph across the library. Mirror this in the page's intro callout ("Read after Part X").
+
+## Knowledge graph linking
+
+Pages should not be islands. Connect them:
+- **Related** lines in the purpose callout for sibling/overlapping pages.
+- **Prerequisites** relation in the database for ordered dependencies.
+- Inline `<mention-page url="..."/>` links wherever one page references a concept that lives in another. A well-linked library is itself a study aid.
 
 ## Safe-edit checklist
 

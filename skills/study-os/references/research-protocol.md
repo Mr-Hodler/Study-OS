@@ -8,6 +8,8 @@ This is what separates Study OS from shallow AI writing. A page is not done unti
 - Include the **full set of arguments** a knowledgeable person would expect. If an expert would ask "but what about X?", X must be addressed.
 - Prioritize **insight and completeness** over word count. Dense, not padded.
 - Present competing viewpoints fairly where the topic is contested; note the empirical disputes.
+- **Deep-dive pages aim at real competence.** A reader should finish genuinely knowledgeable: the mechanism and the intuition behind it, why it works, the trade-offs, concrete numbers, named real examples, edge cases, and the common misconceptions. Use several diagrams and tables, not one. Cover every sub-topic the parent page implies; if a keyword from the source belongs here, it must appear.
+- Depth without padding: add information, structure, or a visual, never filler sentences.
 
 ## Sourcing rules
 

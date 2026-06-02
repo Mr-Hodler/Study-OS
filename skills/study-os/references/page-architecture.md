@@ -7,7 +7,7 @@ The fixed skeleton every Study OS page follows, plus the exact Notion-flavored M
 1. **Meta callout** (gray background): `Last Updated` + `Related`.
 2. **Purpose callout** (blue background): `Page Purpose`, `Non-scope`, and a one-line **What you get here** (the signpost legend).
 3. A warm one-paragraph **intro with a hook** (see the soul rules in `writing-standards.md`).
-4. **Sub-pages index, near the top.** If the page is a hub with sub-pages, put the index right here as a `## Deep dives` table or a 2-column block: one row per sub-page, with a one-line focus and the link. The reader sees the map before the content, not buried at the bottom.
+4. **Sub-pages index, near the top.** If the page is a hub with sub-pages, place the child-page **cards** here under a `## Deep dives` heading. The cards already show the titles, so they ARE the index. Do NOT also add a table that just repeats the same titles next to the cards: that reads as a duplicate. If a one-line focus per sub-page helps, put a short bulleted list above the cards, not a redundant table. The reader sees the map before the content, not buried at the bottom.
 5. `# Page Topic`, a horizontal rule `---`, then `<table_of_contents/>`.
 6. **Chapters as real `## H2` headings** (H3 for sub-points). Each chapter opens with a one-line hook, then substance shaped to the material using the signposts (💡 key idea, 💬 example, 🔑 insight, ⚠️ watch out, 📚 go deeper). Chapters are NOT toggles.
 7. Page-level `## Glossary`, `## Resources`, `## Sources` at the end.

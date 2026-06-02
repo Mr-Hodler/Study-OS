@@ -8,8 +8,8 @@ How to put real visuals into a study page. These behaviors are verified against 
 | --- | --- | --- |
 | Flowchart, process, sequence, hierarchy, ER, state, timeline, mindmap | **Mermaid code block** | Renders natively in Notion. First choice for schemas and diagrams. |
 | Simple data chart (bar, line, pie) | **Mermaid** (`pie`, `xychart-beta`) or a generated image file | Mermaid for quick charts; generated file when precise. |
-| A real existing diagram, photo, or figure | **`![alt](public URL)`** | Works with any public image URL. Use Creative Commons or official sources and add attribution. |
-| A chart from the user's own data | **Generate a PNG/SVG file** in the sandbox, present it, mark an image slot | The skill cannot upload to Notion or host a public URL, so the user drags the file in. |
+| A real existing diagram, photo, or figure | **`![alt](public URL)`** only if the host allows hotlinking; otherwise generated-file + slot | Many hosts (incl. Wikimedia) render blank in Notion. Default to Mermaid or a generated file. |
+| A chart from the user's own data, or any raster the page really needs | **Generate a PNG/SVG file** in the sandbox, present it, mark an image slot | The skill cannot upload to Notion or host a public URL, so the user drags the file in. Reliable. |
 | Video | **A "Watch" list of links** | The connector stores a plain URL as a link; the user can convert it to a player by pasting in the app. |
 | Comparison / matrix / timeline of values | **Table** | Not an image. See page-architecture. |
 
@@ -22,16 +22,17 @@ flowchart LR
 ```
 Useful types: `flowchart`, `sequenceDiagram`, `stateDiagram-v2`, `erDiagram`, `mindmap`, `timeline`, `gantt`, `pie`, `xychart-beta`. Keep diagrams small and legible; one idea per diagram. Arrows (`-->`) are safe inside the block.
 
-## Images by URL
+## Images by URL (use with caution)
 
 ```
-![Descriptive alt text](https://upload.wikimedia.org/.../diagram.png)
-*Source: [Wikimedia Commons, CC BY-SA](https://commons.wikimedia.org/...)*
+![Descriptive alt text](https://host/diagram.png)
+*Source: [Name, CC BY-SA](https://...)*
 ```
-Rules:
-- Only use stable, public, license-clean URLs (Wikimedia Commons, official paper/figure pages, government sources). Never hotlink random or copyrighted images.
-- Always add a one-line attribution beneath the image.
-- Do NOT use `<image src=...>` or `<embed url=...>` tags: the connector renders them as literal text. Use Markdown `![]()` only.
+Reality check, learned in production: **many hosts block hotlinking, so the image block is created but shows blank in Notion.** Wikimedia Commons in particular often does not render when embedded. So:
+- **Do not rely on an external image URL unless you have a host known to allow hotlinking** (e.g. raw.githubusercontent.com, official CDN). When in doubt, it will probably show blank.
+- **Prefer Mermaid** for anything diagram-like (it always renders), or **generate the image as a file** and use an image slot for the user to upload.
+- Only use Markdown `![]()`; the `<image>`/`<embed>` tags render as literal text. Always add attribution.
+- If you do embed a URL, treat it as best-effort and pair it with a fallback (a Mermaid version or an image slot) so the page is never left with a blank box.
 
 ## Generated assets (charts/infographics the user must upload)
 
