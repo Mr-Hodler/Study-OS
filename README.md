@@ -122,7 +122,7 @@ Version history lives in [CHANGELOG.md](CHANGELOG.md). To propose changes, see [
 
 ## Author
 
-Built by **Aron Clementi** ([@Mr-Hodler](https://github.com/Mr-Hodler)), a business developer and founder who manages projects, due diligence, and complex documents, and wanted a way to turn scattered notes into a clean, reusable study library. Study OS is the tooling that came out of that workflow. Feedback and pull requests are welcome.
+Built by **Aron Clementi** ([@Mr-Hodler](https://github.com/Mr-Hodler)). The need was simple: something to manage my study and theory pages in Notion. Start from nothing or from unstructured keywords, turn them into clean, deep, consistent material, and keep the whole library maintained over time. Study OS is that tool. Feedback and pull requests are welcome.
 
 ## License
 

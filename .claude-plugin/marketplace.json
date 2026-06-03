@@ -5,14 +5,14 @@
   },
   "metadata": {
     "description": "Study OS marketplace: a study toolkit for Notion. Build deep study pages, and curate the whole library.",
-    "version": "1.8.0"
+    "version": "1.10.0"
   },
   "plugins": [
     {
       "name": "study-os",
       "source": "./",
       "description": "A study toolkit with two skills. Study OS turns rough notes into deep, consistent study pages (Notion or PDF/doc); Study Librarian curates the library: audits, fixes metadata, maintains the prerequisite graph, deduplicates, and maps the collection.",
-      "version": "1.8.0",
+      "version": "1.10.0",
       "author": {
         "name": "Aron Clementi"
       },

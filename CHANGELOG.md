@@ -2,6 +2,19 @@
 
 All notable changes to Study OS are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.10.0] - 2026-06-02
+
+### Added
+- **Analogy signpost (🧩).** For complex or technical topics the skill now adds analogies (a familiar mental model), not just examples, and uses a dedicated 🧩 signpost. Updated `writing-standards.md` and `page-architecture.md`.
+
+## [1.9.0] - 2026-06-02
+
+### Added
+- **Actionable image slots:** when a page needs a real image, the skill now drops a visible yellow callout at the exact spot that says what to add and includes a ready **"Search Google for: ..."** query, so the user finds and inserts the image in one step. Updated `media-assets.md`, `page-architecture.md`, and `SKILL.md`.
+
+### Notes
+- Optional editorial database property **Page state** (Draft / To expand / Needs edits / Complete) is supported by the database-management rules, distinct from the learning `Status`.
+
 ## [1.8.0] - 2026-06-02
 
 ### Added

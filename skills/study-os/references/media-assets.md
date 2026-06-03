@@ -47,6 +47,25 @@ When a precise chart or infographic is needed and no clean public image exists:
 </callout>
 ```
 
+## Image slots must be visible and actionable
+
+When a real image is the right call (a photo, a real-world diagram, a hardware shot) and Mermaid cannot do it, leave a **highly visible image slot** exactly where the image belongs. The slot must tell the user three things, and always include a ready-to-run **Google search query** so they can find and drop the image in one step:
+
+```
+<callout icon="🖼️" color="yellow_bg">
+	**Image to add here.**
+	**What:** [precise description of the image]
+	**Search Google for:** "[a specific query, e.g. 'BIP32 HD wallet derivation tree diagram']"  (use Google Images)
+	**Why:** [what it makes clearer]
+</callout>
+```
+
+Rules:
+- One slot per needed image, placed at the exact spot in the flow (not collected at the end).
+- Always give a **concrete search query**, not a vague hint. The user should paste it straight into Google Images.
+- Use the yellow callout and the 🖼️ icon every time, so slots are impossible to miss when scanning the page.
+- If a clean public image URL is known to work, embed it instead (see above); otherwise use this slot. Prefer Mermaid for anything diagram-like.
+
 ## Videos
 
 Group curated videos in a short section so they are easy to find:

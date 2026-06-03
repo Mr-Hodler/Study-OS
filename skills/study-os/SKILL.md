@@ -95,7 +95,8 @@ Run these steps in order. Do not skip the index confirmation for theory pages un
   - Chapters as **real `## H2` headings** (H3 for sub-points), each opening with a one-line hook then substance shaped to the material. Toggles only for minor/appendix detail, never a whole chapter.
   - Use the **signpost system** for soul and scannability: 💡 Key idea, 💬 Example, 🔑 Insight, ⚠️ Watch out, 📚 Go deeper.
   - **Exploit Notion structure aggressively:** tables for comparisons/matrices/timelines, columns for parallel blocks, callouts for key points. A page of only bullets is under-built.
-  - **Real visuals, not placeholders (see `references/media-assets.md`):** Mermaid code blocks for diagrams/schemas (render natively), `![alt](url)` for clean public images with attribution, a generated chart file + image slot only when needed, and a short `## Watch` video list. Never use `<image>`/`<embed>` tags.
+  - **Real visuals, not placeholders (see `references/media-assets.md`):** Mermaid code blocks for diagrams/schemas (render natively), `![alt](url)` for clean public images with attribution, a generated chart file + image slot, and a short `## Watch` video list. Never use `<image>`/`<embed>` tags.
+  - **Image slots must be visible and actionable:** when a real image is needed, drop a yellow 🖼️ callout at the exact spot with **what** to add and a ready **"Search Google for: ..."** query, so the user finds and inserts it in one step.
   - **Per-chapter depth:** hook, 💡 key idea, substance, 💬 numeric example, ⚠️ misconception where one exists, 🧭 open question for meaty topics, 📚 go deeper.
   - A short **Sources** (and optional **Glossary** / **Links**) section at the end of each chapter or the page; cite generously where claims, data, or quotes appear.
 - Hard style rules: **no em dashes** in your own writing; bold the label before a colon in bullets; embed links in descriptive text; gray=neutral, blue=insight, green=positive outcome.

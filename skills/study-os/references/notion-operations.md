@@ -39,6 +39,7 @@ Always use the block syntax in `page-architecture.md`. Do not guess syntax; mirr
 - **Existing page, small change:** use `update_content` (surgical search-and-replace) or `insert_content`. Re-sending the whole page as `replace_content` wastes tokens and forces you to re-include every preserved block (child pages, file attachments), which is where mistakes happen.
 - **Reserve `replace_content`** for a genuine full restructure. When you must use it, include every child page (`<page url=...>`) and attachment (`<file src=...>`) in the new content so nothing is deleted.
 - Prefer one well-planned write over several iterative rewrites of the same page.
+- **After a `<page>` card, start the next block with a heading or a paragraph, not a bare list item.** A list bullet placed immediately after a child-page card can get absorbed into the card area on render. Put a sentence or heading between them.
 
 ## Database management
 

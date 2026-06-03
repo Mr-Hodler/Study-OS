@@ -40,13 +40,17 @@ flowchart LR
 ![Descriptive alt](https://upload.wikimedia.org/.../figure.png)
 *Source: [Wikimedia Commons, CC BY-SA](https://commons.wikimedia.org/...)*
 ```
-3. **Generated asset + image slot** only when a precise chart is needed and no clean URL exists. Generate the file, present it, and mark the spot:
+3. **Image slot** when a real image is needed and no clean URL exists. Make it a visible yellow callout placed exactly where the image goes, and always include a ready Google search query so the user can find and drop it in one step:
 ```
 <callout icon="🖼️" color="yellow_bg">
-	**Drop image here:** `filename.png` (generated, see chat) — **Shows:** [what it depicts].
+	**Image to add here.**
+	**What:** [precise description]
+	**Search Google for:** "[specific query]"  (Google Images)
+	**Why:** [what it clarifies]
 </callout>
 ```
-Do NOT use `<image>` or `<embed>` tags; the connector renders them as literal text. Videos go in a short `## Watch` list of links.
+For a chart the skill generated as a file, the slot names the file instead: `**Drop image here:** filename.png (generated, see chat). **Shows:** ...`.
+Do NOT use `<image>` or `<embed>` tags; the connector renders them as literal text. Videos go in a short `## Watch` list of links. Full rules in `references/media-assets.md`.
 
 ## Chapter depth (what a good chapter contains)
 
@@ -57,8 +61,10 @@ Shape varies, but a strong chapter usually has: a one-line hook, 💡 a key idea
 Use these consistently so every page feels familiar and scannable. Apply as inline bold labels or small callouts:
 - 💡 **Key idea** - the core insight in one or two lines.
 - 💬 **Example** - a concrete, real example or mini-scenario.
+- 🧩 **Analogy** - a familiar comparison for an abstract or technical idea (use for complex topics).
 - 🔑 **Insight** - a sharp, memorable rule of thumb.
 - ⚠️ **Watch out** - a common mistake, risk, or misconception.
+- 🧭 **Open question** - what is unsettled or at the frontier.
 - 📚 **Go deeper** - sources and the deep-dive sub-page.
 
 ## Block syntax (Notion-flavored Markdown)

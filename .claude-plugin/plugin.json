@@ -1,6 +1,6 @@
 {
   "name": "study-os",
-  "version": "1.8.0",
+  "version": "1.10.0",
   "description": "A study toolkit for Notion. Two skills: Study OS builds deep, source-backed study pages (Notion or PDF) from rough notes; Study Librarian curates the whole library, auditing structure, fixing metadata, maintaining the prerequisite graph, deduplicating, and mapping the collection.",
   "author": {
     "name": "Aron Clementi"

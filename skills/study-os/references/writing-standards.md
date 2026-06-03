@@ -19,9 +19,11 @@ A correct page that reads like a generated template is a failure. Pages must hav
 - **Use a consistent signpost system** so readers know what they are looking at. Recommended icons, used as inline bold labels or small callouts:
   - 💡 **Key idea** - the core insight in one or two lines.
   - 💬 **Example** - a concrete, real example or mini-scenario.
+  - 🧩 **Analogy** - a familiar comparison that makes an abstract or technical idea click.
   - 📚 **Go deeper** - sources and the deep-dive sub-page.
   - 🔑 **Insight / rule of thumb** - a sharp takeaway worth remembering.
   - ⚠️ **Watch out** - a common mistake, risk, or misconception.
+- **For complex or technical topics, include analogies, not just examples.** When a concept is abstract (cryptography, math, distributed systems), give the reader a familiar mental model (a lock and key, a tree, a sealed envelope) alongside the precise definition. One good analogy can save three paragraphs.
 - **Write like an expert talking to a smart peer**, not an encyclopedia. Confident, concrete, occasionally opinionated where the field has a clear consensus. Name the debate where it is genuinely contested.
 - **Concrete beats abstract.** Prefer a real number, a named tool, a dated event, or a worked example over a generic statement.
 - This soul layer never excuses padding. Stay dense; personality lives in framing and selection, not in extra words.
