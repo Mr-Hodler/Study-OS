@@ -1,18 +1,15 @@
 ---
 name: study-librarian
 description: >-
-  Manages and curates a study/research library and its database: the collection of pages built by
-  Study OS. Use when the user asks to "audit my study library", "organize the study database",
-  "clean up the library", "map my study pages", "build a library index", "where do I find X",
-  "what's missing in my library", "find duplicate or overlapping notes", "fix the metadata", "set
-  categories and reading order", "maintain the prerequisites graph", "check my study pages for
-  consistency", or "turn this study plan / curriculum into a structure to fill in". Operates at the
-  COLLECTION level (not the single page): structure and consistency audits, navigation and search,
-  metadata hygiene, the prerequisite/related knowledge graph, deduplication, gap analysis, a library
-  map/index, and scaffolding a curriculum into stub pages. Environment-agnostic: detects any Notion
-  study database schema at runtime. Does NOT manage the user's personal learning (no quizzes, no
-  spaced repetition, no Status / Next review changes) and does NOT write the deep page content
-  itself (it scaffolds the structure; Study OS fills it).
+  Manages and curates a study or research library and its database: the collection of pages Study
+  OS builds. Use when the user asks to audit the study library, organize or clean up the database,
+  map the pages, build an index, find where something is or what is missing, find duplicate or
+  overlapping notes, fix metadata, set categories and reading order, maintain the prerequisites
+  graph, check pages for consistency, or turn a curriculum into a structure to fill in. Operates
+  at the COLLECTION level, not the single page: structure and consistency audits, navigation,
+  metadata hygiene, the prerequisite graph, deduplication, gap analysis, and scaffolding. Detects
+  any study database schema at runtime. Does NOT manage personal learning (no quizzes, no spaced
+  repetition) and does NOT write deep page content: it scaffolds, Study OS fills.
 ---
 
 # Study Librarian
