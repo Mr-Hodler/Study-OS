@@ -16,7 +16,7 @@ Every output, regardless of target, carries the same parts:
 ## Rendering to Notion (default)
 
 - Use the block syntax in `page-architecture.md`: `<callout>`, `<details><summary>### Chapter - Title</summary>`, `<table>`, `<columns>`, `<mention-page>`, `<mention-date>`, `<table_of_contents>`.
-- Chapters are toggle headings. Links are inline `[text](url)`.
+- **Chapters are real headings (H2), never toggles** — see `page-architecture.md` and `writing-standards.md`, which own this rule. Toggles are for minor detail only. Links are inline `[text](url)`, never bare URLs.
 - After writing, sync the database row (`notion-operations.md`).
 
 ## Rendering to PDF / document
@@ -25,7 +25,7 @@ Every output, regardless of target, carries the same parts:
 
 | Model element | Notion | PDF / document |
 | --- | --- | --- |
-| Chapter (toggle) | toggle heading | clear H2 section, listed in a table of contents |
+| Chapter | H2 heading | clear H2 section, listed in a table of contents |
 | Meta + Purpose | callouts | a boxed/intro block at the top |
 | Comparison | `<table>` | a real table |
 | Short parallel content | `<columns>` | a 2-column layout or a compact table |

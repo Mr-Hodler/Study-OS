@@ -35,7 +35,7 @@ Full rules in `references/media-assets.md`. Order of preference:
 flowchart LR
   A["Input"] --> B["Step"] --> C["Output"]
 ```
-2. **Image by URL** when a clean public figure exists (Wikimedia/official), with attribution:
+2. **Image by URL** only from a host known to allow hotlinking (a raw file host or an official CDN), with attribution. **Wikimedia in particular often renders blank when embedded** — see `media-assets.md`, which owns this rule. When in doubt use Mermaid or a generated file:
 ```
 ![Descriptive alt](https://upload.wikimedia.org/.../figure.png)
 *Source: [Wikimedia Commons, CC BY-SA](https://commons.wikimedia.org/...)*

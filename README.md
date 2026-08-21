@@ -103,11 +103,11 @@ For theory pages it proposes a chapter index and source list first, then writes;
 ### Study Librarian — curate the whole library
 Use it when the job is about the collection, not one page. What it is for, with examples:
 
-- **Navigate / find** — "where in my study DB is anything on prompt injection?" or "do I have a page on vector databases?" It answers with the page links, or tells you it is a gap.
-- **What's missing** — "audit my study library and tell me what's inconsistent or missing." It reports orphan pages, broken structure, and topic gaps, prioritized.
+- **Find** — "where in my study DB is anything on prompt injection?" or "do I have a page on vector databases?" It answers with the page links, or tells you it is a gap.
+- **Audit** — "audit my study library and tell me what's inconsistent or missing." It reports orphan pages, broken structure, and topic gaps, prioritized.
 - **Organize** — "set categories and reading order across my AI pages and link their prerequisites." It fixes metadata and the prerequisite/related graph. It never touches your `Status` or `Next review`.
-- **Map / index** — "build me an index page that maps my whole study library." It generates a categorized index plus a Mermaid graph of how pages depend on each other.
-- **Scaffold from a plan** — "here's a 10-module curriculum on real estate finance, set up the structure to fill in." It creates a hub and one stub page per module, with metadata and prerequisite links, ready for **Study OS** to fill.
+- **Map** — "build me an index page that maps my whole study library." It generates a categorized index plus a Mermaid graph of how pages depend on each other.
+- **Scaffold** — "here's a 10-module curriculum on real estate finance, set up the structure to fill in." It creates a hub and one stub page per module, with metadata and prerequisite links, ready for **Study OS** to fill.
 - **Dedupe** — "find overlapping notes and suggest merges." It flags duplicates and proposes a merge or a clean scope split (on your confirmation).
 
 > Typical combined flow: **Librarian scaffolds** the structure from your plan, then **Study OS fills** each page, then **Librarian audits and maps** the result.

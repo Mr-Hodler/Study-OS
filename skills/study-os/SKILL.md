@@ -1,15 +1,14 @@
 ---
 name: study-os
 description: >-
-  Builds deep, expert-level study and research material from rough keywords or notes, as pages or
-  as a document, and manages the underlying study database. Use when the user says: build the
-  study material, structure this study page, turn these notes into a study page, research this
-  topic and write it up, make a study PDF about X, deepen or expand this page, create a study
-  page, reformat this page, explain this concept, add a study entry, update my study index, or
-  points at a page, a database or a document for study, research, theory, notes, deep-dives or
-  article writing. Produces lean, consistently structured material with formatted links (never
-  bare URLs), tables, columns, diagrams, examples, chapters as real headings, sources only where
-  they add weight, and a synced database row. Input and output agnostic. Never uses em dashes.
+  Builds deep, expert-level study and research material from rough keywords or notes, as pages or as a
+  document. Use when the user says: build the study material, structure this study page, turn these notes into
+  a study page, research this topic and write it up, make a study PDF about X, deepen or expand this page,
+  create a study page, reformat this page, explain this concept, or points at a page, a database or a document
+  for study, research, theory, notes, deep-dives or article writing. Produces lean, consistently structured
+  material with formatted links (never bare URLs), tables, columns, diagrams, examples, chapters as real
+  headings, sources only where they add weight, and a synced database row. Input and output agnostic. Never
+  uses em dashes.
 ---
 
 # Study OS
@@ -44,7 +43,7 @@ Full rules live in `references/writing-standards.md`. Read it before writing any
 
 ## When to use which mode
 
-This skill has three modes. Pick based on the request.
+This skill has four modes. Pick based on the request.
 
 | Mode | Trigger | What it does |
 | --- | --- | --- |
