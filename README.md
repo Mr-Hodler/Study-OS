@@ -1,5 +1,7 @@
 # Study OS
 
+![version](https://img.shields.io/badge/version-1.12.0-blue)
+
 ![Study OS: turn rough notes into deep, consistent study pages in Notion or as a PDF](assets/cover.svg)
 
 A study toolkit for Notion. It turns sparse inputs (keywords, topics, dumped notes) into **deep, expert-level, consistently structured study pages**, and keeps the whole study **library** clean and organized.
@@ -10,8 +12,8 @@ Built to fix a common problem: generic AI writing stays shallow and high-level. 
 
 This plugin ships two complementary skills:
 
-- **Study OS** — authors one page. Reads a Notion page or your prompt, researches with dated sources, and writes a deep, structured study page (Notion or PDF). Modes: **Build**, **Reformat**, **Explain**, **Refresh**.
-- **Study Librarian** — curates the collection. Audits structure and consistency across all pages, fixes metadata, maintains the prerequisite/related knowledge graph, deduplicates, and builds a library map. Modes: **Audit**, **Organize**, **Map**, **Dedupe**. It manages the material and its organization, never your personal learning state.
+- **Study OS**: authors one page. Reads a Notion page, its existing index or your prompt, plus your own files, researches with dated sources, and writes a deep, dense, structured study page (Notion or PDF). Three page types: **topic**, **book summary**, **language course**. Modes: **Build**, **Reformat**, **Explain**, **Refresh**.
+- **Study Librarian**: curates the collection. Audits structure and consistency across all pages, fixes metadata, maintains the prerequisite/related knowledge graph, deduplicates, and builds a library map. Modes: **Audit**, **Organize**, **Map**, **Dedupe**. It manages the material and its organization, never your personal learning state.
 
 > Study OS = build a page. Study Librarian = curate the library of pages.
 
@@ -37,14 +39,16 @@ Study-OS-Repo/                           # repo root = the plugin AND the market
 ├── LICENSE                              # MIT
 ├── .gitignore
 ├── assets/                             # repo cover (svg + png), not study content
-├── study-os.skill                      # packaged Study OS skill (one-click install)
-├── study-librarian.skill               # packaged Study Librarian skill (one-click install)
+├── dist/                               # packaged .skill files (one-click install), built by scripts/build.py
+├── guide/study-os-explorer.html        # the manual, generated, do not edit by hand
+├── scripts/                            # build.py (package + --check) and explorer/ (manual generator)
 └── skills/
     ├── study-os/                       # SKILL 1: build a study page
     │   ├── SKILL.md
-    │   └── references/                 # writing-standards, page-architecture, notion-operations,
-    │                                   # research-protocol, classification, reformat-mode,
-    │                                   # output-targets, media-assets, qa-review
+    │   └── references/                 # writing-standards, page-architecture, page-types,
+    │                                   # index-completion, notion-operations, research-protocol,
+    │                                   # classification, reformat-mode, output-targets,
+    │                                   # media-assets, qa-review
     └── study-librarian/                # SKILL 2: curate the library
         ├── SKILL.md
         └── references/                 # library-operations, audit-checklist
@@ -60,7 +64,7 @@ Pick one of the three options below.
 
 ### Option A - one-click `.skill` (Cowork)
 
-Open `study-os.skill` and use **Save skill**. This installs the skill directly without touching a marketplace.
+Open `dist/study-os.skill` (and `dist/study-librarian.skill`) and use **Save skill**. This installs the skill directly without touching a marketplace.
 
 ### Option B - Claude Code (or Cowork) via marketplace
 
@@ -86,34 +90,37 @@ The skill activates on phrases like "build the study page", "structure this stud
 
 ## Usage and examples
 
-### Study OS — author one page
+### Study OS: author one page
 Use it when you want a single topic turned into a deep, structured page.
 
 ```
 Open <Notion page URL> and build the full study material.
 Research <topic> and write it up as a study page under <database>.
 Deepen this page, chapter by chapter, with sources.
+Complete the index on this page: tell me what is missing and what clashes with my other pages.
+Summarise <book> into my Book Library.
+Build a Spanish course from zero to B2, one page per level.
 Reformat this page for skimmability without changing the words.
 Refresh the dated facts on this page.
 Explain <concept> simply.
 ```
 
-For theory pages it proposes a chapter index and source list first, then writes; say "autonomous" to skip the confirmation.
+For theory pages it proposes a chapter index and source list first, then writes; say "autonomous" to skip the confirmation. When the page already has an index, it first shows what is missing (against an expert reference syllabus) and which other pages duplicate, overlap or contradict it. It replaces Notion page templates: the book and language structures live inside the skill.
 
-### Study Librarian — curate the whole library
+### Study Librarian: curate the whole library
 Use it when the job is about the collection, not one page. What it is for, with examples:
 
-- **Find** — "where in my study DB is anything on prompt injection?" or "do I have a page on vector databases?" It answers with the page links, or tells you it is a gap.
-- **Audit** — "audit my study library and tell me what's inconsistent or missing." It reports orphan pages, broken structure, and topic gaps, prioritized.
-- **Organize** — "set categories and reading order across my AI pages and link their prerequisites." It fixes metadata and the prerequisite/related graph. It never touches your `Status` or `Next review`.
-- **Map** — "build me an index page that maps my whole study library." It generates a categorized index plus a Mermaid graph of how pages depend on each other.
-- **Scaffold** — "here's a 10-module curriculum on real estate finance, set up the structure to fill in." It creates a hub and one stub page per module, with metadata and prerequisite links, ready for **Study OS** to fill.
-- **Dedupe** — "find overlapping notes and suggest merges." It flags duplicates and proposes a merge or a clean scope split (on your confirmation).
+- **Find:** "where in my study DB is anything on prompt injection?" or "do I have a page on vector databases?" It answers with the page links, or tells you it is a gap.
+- **Audit:** "audit my study library and tell me what's inconsistent or missing." It reports orphan pages, broken structure, and topic gaps, prioritized.
+- **Organize:** "set categories and reading order across my AI pages and link their prerequisites." It fixes metadata and the prerequisite/related graph. It never touches your `Status` or `Next review`.
+- **Map:** "build me an index page that maps my whole study library." It generates a categorized index plus a Mermaid graph of how pages depend on each other.
+- **Scaffold:** "here's a 10-module curriculum on real estate finance, set up the structure to fill in." It creates a hub and one stub page per module, with metadata and prerequisite links, ready for **Study OS** to fill.
+- **Dedupe:** "find overlapping notes and suggest merges." It flags duplicates and proposes a merge or a clean scope split (on your confirmation).
 
 > Typical combined flow: **Librarian scaffolds** the structure from your plan, then **Study OS fills** each page, then **Librarian audits and maps** the result.
 
 ### Triggers
-- Study OS: "build / structure this study page", "research this topic in Notion", "make a study PDF about X", "reformat / refresh this page", "explain this concept".
+- Study OS: "build / structure this study page", "complete this index", "summarise this book", "language course", "research this topic in Notion", "make a study PDF about X", "reformat / refresh this page", "explain this concept".
 - Study Librarian: "audit my study library", "where is X / what covers Y", "what's missing", "organize the database", "map / index my library", "turn this plan into a structure", "find duplicates".
 
 ## Versioning and contributing
@@ -134,6 +141,6 @@ MIT. See [LICENSE](LICENSE). Copyright (c) 2026 Aron Clementi.
 
 **Download [`guide/study-os-explorer.html`](./guide/study-os-explorer.html) and open it in a browser.** GitHub shows HTML as source, so use the download button. One self-contained file, no dependencies, and it ships inside every skill package.
 
-It is organised by **the job you are doing**, not by the skill. Four tabs: the 5 jobs with their chains, the rules that make each work and what breaks it · the 2 skills as cards with clickable boundaries · how it holds together · a glossary of 42 terms, one line each.
+It is organised by **the job you are doing**, not by the skill. Four tabs: the 5 jobs with their chains, the rules that make each work and what breaks it · the 2 skills as cards with clickable boundaries · how it holds together · a glossary of 46 terms, one line each.
 
 **For everything about one skill, open its `SKILL.md`.** The explorer is how they fit together and deliberately does not restate them.

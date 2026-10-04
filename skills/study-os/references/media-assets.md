@@ -76,6 +76,16 @@ Group curated videos in a short section so they are easy to find:
 ```
 Pick 1 to 3 genuinely high-quality videos (lectures, official talks, top explainers). Note to the user that pasting the link on its own line in Notion offers a player embed.
 
+## Interactive artifacts (when reading is not enough)
+
+Some things are learned by changing an input and watching the output: a unit-economics model, compounding, a cap table after dilution, a token-cost calculator, a conjugation drill. When that is the case and the session can publish a hosted page (an artifact tool), build it as a small self-contained page and link it from the study page with a callout at the exact spot:
+```
+<callout icon="🧮" color="blue_bg">
+	**Try it:** [Descriptive name of the tool](URL). Change [input] and watch [output].
+</callout>
+```
+Rules: one artifact per real need, never decoration; the page must still make sense without it; the numbers in the artifact match the numbers on the page. If no artifact tool is available, put the model as a table with the formula written out.
+
 ## Notion handoff (what the app does better than the API)
 
 Mermaid is the default for diagrams because it is cheap, native, and consistent. Do NOT route core writing or diagram generation through Notion AI: it reintroduces the shallow, inconsistent output Study OS exists to replace, and it cannot be invoked through this connector anyway.

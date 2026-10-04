@@ -8,8 +8,15 @@ Run this pass before presenting any page. It is the final gate; do not skip it. 
 - [ ] Misconceptions (⚠️) and open questions are surfaced where they exist.
 - [ ] No generic, encyclopedia-flavored filler. Personality lives in framing, not padding.
 
+## Density and coverage
+- [ ] Cut pass done: every sentence carries a fact, number, mechanism, example, decision rule or warning.
+- [ ] No banned filler phrases, no recap paragraphs, no idea stated twice.
+- [ ] Every index item, every keyword from the source, and every note the user wrote is covered on the page.
+- [ ] If the page started from an existing index: gaps and conflicts were checked (`index-completion.md`) and the conflicts were reported.
+- [ ] The page type's chapter set is complete (`page-types.md`).
+
 ## Structure
-- [ ] Sub-pages index is near the TOP (table or 2-column), with the live page cards.
+- [ ] Hub sub-pages sit near the TOP as live cards under `## Deep dives`, with no duplicate title table.
 - [ ] Chapters are real `##` headings, not toggles. Toggles only for minor/appendix content.
 - [ ] The shape varies per chapter (table, columns, steps, two positions) and fits the material.
 - [ ] Tables used for comparisons/matrices/timelines; columns for parallel blocks.
@@ -27,12 +34,13 @@ Run this pass before presenting any page. It is the final gate; do not skip it. 
 
 ## Style
 - [ ] Zero em dashes (—) anywhere except verbatim quotes. Scan and remove.
-- [ ] Signposts used consistently: 💡 💬 🔑 ⚠️ 📚.
+- [ ] Signposts used consistently: 💡 💬 🧩 🔑 ⚠️ 🧭 📚.
 - [ ] Bold label before a colon in bullets; consistent heading hierarchy.
-- [ ] English by default unless the user asked otherwise.
+- [ ] Language: English by default, the existing page or database language when there is one, the user's request above both.
 
 ## Database and metadata
-- [ ] The Study Index row is updated: title, category, scope, description, and (if present) Status and Next review.
+- [ ] The database row is updated: title, category, scope, description, editorial page state if present.
+- [ ] Personal state untouched: learning status, review dates, read/listened, ratings, owned formats.
 - [ ] Page meta shows Last Updated, level, and reading time.
 - [ ] Non-scope and Related lines prevent overlap with sibling pages.
 

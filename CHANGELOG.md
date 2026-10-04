@@ -2,7 +2,26 @@
 
 All notable changes to Study OS are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [v1.11.0] — 2026-08 — the manual is a page, organised by the job
+## [1.12.0] - 2026-10-04
+
+### Added
+- **Page types** (`page-types.md`): Topic (default), **Book summary** and **Language course**, each with its own chapter set on the shared skeleton. They replace platform templates (Notion database templates), so the structure is portable.
+- **Index completion** (`index-completion.md`): when a page already has an index, the skill extracts it, compares it with an expert reference syllabus (missing, misplaced, redundant, too broad), and searches the library for pages that duplicate, overlap or contradict it. Both tables are shown in chat before writing.
+- **Density rules** (`writing-standards.md` -> "Density"): the sentence test, a banned-filler list, one idea in one place, numbers over adjectives, and a mandatory cut pass. Completeness comes from coverage, not length.
+- **The user's own material first** (`research-protocol.md`): page notes, attachments, uploads and connected file storage (for example Google Drive) are read before the web.
+- **Interactive artifacts** (`media-assets.md`): a linked calculator or simulator when changing numbers teaches more than reading them.
+- **Personal state** is never written: learning status, review dates, read or listened, ratings, owned formats.
+
+### Changed
+- Language: English by default, but the existing page or database language wins when there is one.
+- Study Librarian Scaffold knows the language-course split (one stub per CEFR level).
+
+### Fixed
+- Removed leftovers that contradicted current rules: the toggle-chapter syntax in `output-targets.md`, the "sub-pages index table" wording in `SKILL.md`, `writing-standards.md` and `qa-review.md` (the cards are the index), ASCII flows instead of Mermaid, the old "Image suggestion" note, and incomplete signpost lists.
+- Version drift in `marketplace.json`; em dashes in the README and the manual data.
+
+---
+## [1.11.0] - 2026-08 - the manual is a page, organised by the job
 
 The handbook restated in prose what each `SKILL.md` already says: a second copy of the same content, maintained by hand, that nobody read end to end. And it answered the wrong question. Nobody arrives asking what one skill does; they arrive with a job, and the question is which skills, in what order, handing what to each other.
 

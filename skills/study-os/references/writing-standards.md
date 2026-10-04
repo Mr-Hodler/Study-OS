@@ -10,6 +10,18 @@ These are the non-negotiable rules for voice, formatting, and visual structure. 
 - Analytical, but creative when it helps. Suggest improvements; say when something is wrong and offer an out-of-the-box alternative.
 - **Concise is not shallow.** Depth, completeness, and insight are required. Avoid generic, low-quality writing at all costs.
 
+## Density: complete, never padded
+
+Detailed and complete is the goal; long is not. Detail means mechanism, number, example and edge case. It never means more adjectives or more framing.
+
+- **The sentence test.** Every sentence carries at least one of: a fact, a number, a mechanism, an example, a decision rule, a warning. A sentence with none is deleted.
+- **Banned filler:** "it is important to note", "in today's world", "let's dive in", "as we have seen", "in conclusion", "this chapter covers", "there are many", restating the heading as the first sentence, recap paragraphs that repeat the chapter, generic praise ("powerful", "revolutionary") without a number.
+- **One idea, one place.** Do not say it in the intro, the chapter and a summary. No summary sections that repeat the page.
+- **Numbers over adjectives:** "3x cheaper per token" beats "much cheaper".
+- **Shortest form that stays clear:** a definition is one line, a hook is one line, 3+ items sharing the same fields are a table, two parallel short blocks are columns.
+- **Coverage is where completeness lives.** Every sub-topic an expert expects must appear; each one gets exactly the words it needs.
+- **Cut pass.** After each chapter, reread and delete every sentence the reader would not miss.
+
 ## Soul: make pages feel alive
 
 A correct page that reads like a generated template is a failure. Pages must have a point of view and a human rhythm. Rules:
@@ -20,9 +32,10 @@ A correct page that reads like a generated template is a failure. Pages must hav
   - 💡 **Key idea** - the core insight in one or two lines.
   - 💬 **Example** - a concrete, real example or mini-scenario.
   - 🧩 **Analogy** - a familiar comparison that makes an abstract or technical idea click.
-  - 📚 **Go deeper** - sources and the deep-dive sub-page.
   - 🔑 **Insight / rule of thumb** - a sharp takeaway worth remembering.
   - ⚠️ **Watch out** - a common mistake, risk, or misconception.
+  - 🧭 **Open question** - what is still unsettled or at the frontier.
+  - 📚 **Go deeper** - sources and the deep-dive sub-page.
 - **For complex or technical topics, include analogies, not just examples.** When a concept is abstract (cryptography, math, distributed systems), give the reader a familiar mental model (a lock and key, a tree, a sealed envelope) alongside the precise definition. One good analogy can save three paragraphs.
 - **Write like an expert talking to a smart peer**, not an encyclopedia. Confident, concrete, occasionally opinionated where the field has a clear consensus. Name the debate where it is genuinely contested.
 - **Concrete beats abstract.** Prefer a real number, a named tool, a dated event, or a worked example over a generic statement.
@@ -69,7 +82,7 @@ A correct page that reads like a generated template is a failure. Pages must hav
 
 ## Study pages (extra care)
 
-- **Language:** English by default.
+- **Language:** English by default; match the language of the target page or database when it already has one; the user's explicit request overrides both.
 - **Terminology:** use only the word **"Chapter"**.
 - **Chapter titles:** never numbered ("Chapter - Title", not "Chapter 1 - Title"), unless a real numeric/priority order exists.
 - **Chapters are real headings (H2), not toggles.** Use H1 for the page topic, H2 for chapters, H3 for sub-points. Reserve toggles for minor or appendix content only (long tangents, raw data, extended examples). A page that is a wall of collapsed toggles is wrong.
@@ -77,10 +90,10 @@ A correct page that reads like a generated template is a failure. Pages must hav
 - **Structure vs depth:** bullets to structure arguments/claims; short paragraphs (max 5–7 lines) only to fully explain complex points.
 - **Meta:** keep a small meta callout at the top with Last Updated + Related Pages.
 - **Chapter structure:** an `## H2` heading, a one-line hook, then substance shaped to the material (use the 💡 key idea / 💬 example / 🔑 insight / 📚 go deeper signposts). Do not force every chapter into the same skeleton.
-- **Sub-pages index at the top:** if the page has sub-pages, list them index-style near the top (a `## Deep dives` table or 2-column block), not at the bottom.
-- **Exploit Notion structure:** use tables for comparisons/matrices/timelines, columns for parallel blocks, callouts for key points, and ASCII flows in code blocks for simple schemas. A page of only bullets is under-built.
+- **Sub-pages at the top:** if the page has sub-pages, their cards sit under `## Deep dives` near the top. The cards are the index; no table repeating their titles.
+- **Exploit Notion structure:** use tables for comparisons/matrices/timelines, columns for parallel blocks, callouts for key points, and Mermaid for schemas and flows. A page of only bullets is under-built.
 - **Sources / Links / Glossary:** keep a short section at the end of each chapter or the page; cite generously where claims, data, or quotes appear.
-- **Images:** add an explicit **image slot** callout (🖼️ what / why / source) exactly where a visual belongs. Study OS does not upload images, so tell the user precisely what to add and where.
+- **Images:** add an explicit **image slot** callout (🖼️ what / search query / why, see `page-architecture.md`) exactly where a visual belongs. Study OS does not upload images, so tell the user precisely what to add and where.
 
 ## Page intro discipline (anti-duplication)
 

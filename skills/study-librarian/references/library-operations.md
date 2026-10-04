@@ -61,6 +61,7 @@ Turn a study plan or curriculum into an empty, well-organized structure that Stu
    - One **hub page** with a meta callout, a purpose/non-scope callout, and a `## Deep dives` section that will hold the sub-page cards.
    - One **stub page per item**, each with: a clear title, a meta callout, a one-line purpose, and a `## To be written` note. Keep stubs intentionally empty of deep content.
    - Set **metadata** on each (category from existing options, scope, reading order) and the **Prerequisites** links so the dependency graph is in place from day one.
+   - For a **language course**, the stubs are one page per CEFR level under a language hub; for a **book**, a single stub is enough. The chapter sets live in Study OS `page-types.md`.
 4. **Hand off:** tell the user to run **Study OS** on each stub (or the whole set) to write the real content. The Librarian never writes the deep content itself; it builds the frame.
 
 This is the inverse of Dedupe: Dedupe collapses an over-grown library, Scaffold grows a planned one. Both keep the collection coherent.

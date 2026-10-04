@@ -9,14 +9,14 @@ Every output, regardless of target, carries the same parts:
 - A main topic, then chapters: each with Summary bullets and dense Content.
 - Tables for comparisons, 2-column blocks for short parallel content, bullet lists for claims, diagrams for processes.
 - Concrete examples and deep-dives for the hard parts.
-- Image suggestions where they aid learning.
+- Image slots where they aid learning.
 - Sources only where they add weight (quotes, statistics, key/contested claims), as a short section per chapter or at the end.
 - Formatted links (descriptive words, never bare URLs). No em dashes anywhere.
 
 ## Rendering to Notion (default)
 
-- Use the block syntax in `page-architecture.md`: `<callout>`, `<details><summary>### Chapter - Title</summary>`, `<table>`, `<columns>`, `<mention-page>`, `<mention-date>`, `<table_of_contents>`.
-- **Chapters are real headings (H2), never toggles** — see `page-architecture.md` and `writing-standards.md`, which own this rule. Toggles are for minor detail only. Links are inline `[text](url)`, never bare URLs.
+- Use the block syntax in `page-architecture.md`: `<callout>`, `<details><summary>**Label**</summary>` (minor content only), `<table>`, `<columns>`, `<mention-page>`, `<mention-date>`, `<table_of_contents>`, Mermaid code blocks.
+- **Chapters are real headings (H2), never toggles**: see `page-architecture.md` and `writing-standards.md`, which own this rule. Toggles are for minor detail only. Links are inline `[text](url)`, never bare URLs.
 - After writing, sync the database row (`notion-operations.md`).
 
 ## Rendering to PDF / document
@@ -31,7 +31,7 @@ Every output, regardless of target, carries the same parts:
 | Short parallel content | `<columns>` | a 2-column layout or a compact table |
 | Deep-dive/appendix | nested toggle | an appendix section or a clearly labeled sidebar |
 | Link | inline mention/link | hyperlinked descriptive text (never a raw URL) |
-| Image suggestion | inline note | placed figure with caption, or a noted placeholder |
+| Image slot | yellow 🖼️ callout with a search query | placed figure with caption, or a noted placeholder |
 
 - Keep it lean and compact: a reader should skim the table of contents and jump. No padding.
 - Page numbers, a title page, and a table of contents are appropriate for longer PDFs.

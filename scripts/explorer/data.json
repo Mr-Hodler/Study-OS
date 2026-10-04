@@ -7,6 +7,8 @@
    "reach": [
     "A Notion page holds keywords, links and half-finished thoughts, and you want the real page (Build)",
     "You have nothing but a topic and a prompt, and want a page created under the database (Build)",
+    "A page already has an index of chapters and you want it completed, with what is missing and what clashes with other pages found first (Build)",
+    "A book to summarise, or a language to learn level by level (Build, with the Book summary or Language course page type)",
     "A <code>study-librarian</code> stub is sitting there waiting to be filled (Build)",
     "The words are fine and the layout is a wall of text (Reformat)",
     "Time-sensitive facts have aged: prices, versions, laws, who holds a role (Refresh)",
@@ -31,9 +33,10 @@
     }
    ],
    "gives": [
+    "For a page that already has an index: an amended index table (keep, add, move, merge, split, link) and a conflicts table against the rest of the library, in chat, before writing",
     "The page written or updated in place against the fixed skeleton: meta callout, purpose callout with Non-scope, intro hook, table of contents, chapters as real <code>H2</code> headings, then Glossary, Resources and Sources",
-    "The database row synced from the live schema: title, category, scope, a one or two line description, reading order, page URL, done, plus Status and Next review where the schema has them",
-    "Mermaid diagrams inline, a yellow image slot at the exact spot each visual belongs, any generated chart as a file, and a short <code>## Watch</code> list",
+    "The database row synced from the live schema: title, category, scope, a one or two line description, reading order, page URL and editorial page state. Personal state (learning status, review dates, read or listened, ratings) is never touched",
+    "Mermaid diagrams inline, a yellow image slot with a ready search query at the exact spot each visual belongs, any generated chart as a file, an interactive artifact where changing numbers teaches more than reading them, and a short <code>## Watch</code> list",
     "Handoff callouts for the four app-only tasks the API cannot do",
     "The same content model rendered to PDF or a document, where that is the target"
    ],
@@ -93,7 +96,7 @@
    "g": "The page",
    "t": "Page architecture",
    "e": "",
-   "d": "The fixed skeleton in order: meta callout, purpose callout, intro hook, sub-pages index near the top, topic heading, rule, table of contents, chapters, then Glossary, Resources and Sources.",
+   "d": "The fixed skeleton in order: meta callout, purpose callout, intro hook, sub-page cards near the top, topic heading, rule, table of contents, chapters, then Glossary, Resources and Sources.",
    "o": "page-architecture.md"
   },
   {
@@ -382,6 +385,34 @@
    "e": "",
    "d": "Never, in any output, in any mode: not in Notion, not in a PDF, not in chat. A comma, a colon, parentheses, or split the sentence. Verbatim quoted text is the only exception, and Reformat leaves existing ones alone.",
    "o": "writing-standards.md"
+  },
+  {
+   "g": "The page",
+   "t": "Page type",
+   "e": "",
+   "d": "Topic (default), Book summary or Language course. Same skeleton, different chapter set. Replaces platform templates, so the structure travels with the skill.",
+   "o": "page-types.md"
+  },
+  {
+   "g": "The page",
+   "t": "Index completion",
+   "e": "",
+   "d": "What runs when a page already has an index: compare it with an expert reference syllabus for gaps, then search the library for duplicates, overlaps and contradictions, before writing a word.",
+   "o": "index-completion.md"
+  },
+  {
+   "g": "Writing and voice",
+   "t": "Density",
+   "e": "",
+   "d": "Every sentence carries a fact, number, mechanism, example, decision rule or warning, or it is cut. Completeness comes from coverage, not from length.",
+   "o": "writing-standards.md"
+  },
+  {
+   "g": "Rules both skills follow",
+   "t": "Personal state",
+   "e": "",
+   "d": "Properties that describe the reader, not the material: learning status, review dates, read or listened, ratings, owned formats. Read if useful, never written.",
+   "o": "notion-operations.md"
   }
  ],
  "own": [
@@ -1201,7 +1232,7 @@
  "h1": "Study OS",
  "h1sub": "how to actually use it",
  "sub": "Two skills, one Notion database, and one test between them. <b>If the change lands inside a page's chapters it is <code>study-os</code>. If it lands between pages, in the metadata, the links, the index or the stubs, it is <code>study-librarian</code>.</b> Organised by the job you are doing. For everything about one skill open its <code>SKILL.md</code>; for the rules it enforces, open the file under <code>references/</code> that governs the thing you are about to do.",
- "footer": "Study OS &middot; everything about one skill lives in its <code>SKILL.md</code> &middot; the operating rules live in <code>references/</code> &middot; what a skill needs and returns is in <code>HANDBOOK.md</code> &middot; generated by <code>scripts/explorer/build.py</code>, do not edit by hand",
+ "footer": "Study OS &middot; everything about one skill lives in its <code>SKILL.md</code> &middot; the operating rules live in <code>references/</code> &middot; generated by <code>scripts/explorer/build.py</code>, do not edit by hand",
  "model": [
   {
    "type": "standards",
@@ -1221,7 +1252,7 @@
   {
    "type": "rollups",
    "h": "Anything describing a set of records is computed",
-   "lede": "A field describing other records diverges within a week when typed by hand, and a hand-filled rollup is <b>noise that looks like signal</b> — worse than an empty field, because nobody knows it is wrong."
+   "lede": "A field describing other records diverges within a week when typed by hand, and a hand-filled rollup is <b>noise that looks like signal</b>: worse than an empty field, because nobody knows it is wrong."
   },
   {
    "type": "readers",
@@ -1241,7 +1272,7 @@
   {
    "type": "envs",
    "h": "The same model in any environment",
-   "lede": "The mechanism changes, the rule does not. <b>Pick the one your team already opens</b> — a model living in a tool nobody maintains is dead on arrival."
+   "lede": "The mechanism changes, the rule does not. <b>Pick the one your team already opens</b>: a model living in a tool nobody maintains is dead on arrival."
   },
   {
    "type": "breaks",
@@ -1249,5 +1280,5 @@
    "lede": ""
   }
  ],
- "gloss_lede": "Every term this suite uses, in one line, grouped by where it lives. <b>The words are not interchangeable</b> — most confusion comes from treating two of them as the same object."
+ "gloss_lede": "Every term this suite uses, in one line, grouped by where it lives. <b>The words are not interchangeable</b>: most confusion comes from treating two of them as the same object."
 }

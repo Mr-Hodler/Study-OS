@@ -11,6 +11,12 @@ This is what separates Study OS from shallow AI writing. A page is not done unti
 - **Deep-dive pages aim at real competence.** A reader should finish genuinely knowledgeable: the mechanism and the intuition behind it, why it works, the trade-offs, concrete numbers, named real examples, edge cases, and the common misconceptions. Use several diagrams and tables, not one. Cover every sub-topic the parent page implies; if a keyword from the source belongs here, it must appear.
 - Depth without padding: add information, structure, or a visual, never filler sentences.
 
+## The user's own material first
+
+- Read what the user already has before searching the web: notes, links and attachments on the page, uploaded files, and files in connected storage (a Google Drive or similar connector: search by topic and title, read the matching files).
+- Their material sets the angle and the vocabulary; the web fills the gaps and verifies the claims. Link to their files where they back a chapter.
+- If the user mentions material in a storage that is not connected, say which connector would unlock it and continue with what is available.
+
 ## Sourcing rules
 
 - Use web search to gather **authoritative, current** sources. Order of preference: primary sources and official documentation > standards bodies and peer-reviewed/industry references > reputable secondary analysis. Avoid low-quality or SEO-spam pages.
@@ -22,8 +28,9 @@ This is what separates Study OS from shallow AI writing. A page is not done unti
 ## Media and visuals
 
 - Surface 1–3 **high-quality videos** (lectures, talks, official walkthroughs) when they genuinely add value, embedded as descriptive links.
-- Flag, inline, where an **image or diagram would aid learning** (e.g. `> Image suggestion: a flowchart of the OKR cadence`). Suggest the specific visual; do not insert random stock images.
-- Prefer building a diagram/flowchart (described in text or as a Notion structure) over prose when explaining a process or system.
+- Where an **image** would aid learning and Mermaid cannot draw it, place an image slot callout with a ready Google search query (`page-architecture.md`). Suggest the specific visual; never random stock images.
+- Prefer a Mermaid diagram or a table over prose when explaining a process or system.
+- When the learning is in manipulating numbers (a cost model, compounding, a sizing calculator), build an interactive artifact and link it from the page (`media-assets.md`).
 
 ## Theory vs Practice sourcing
 
@@ -38,4 +45,5 @@ This is what separates Study OS from shallow AI writing. A page is not done unti
 
 ## Before writing
 
-- For theory/educational pages, draft the **index of content** (chapters + one-line scope) and the intended **source list**, and confirm with the user - unless they asked for autonomous mode. This prevents wasted depth on the wrong structure.
+- For theory/educational pages, draft the **index of content** (chapters + one-line scope) and the intended **source list**, and confirm with the user, unless they asked for autonomous mode. This prevents wasted depth on the wrong structure.
+- If the page already has an index, run `index-completion.md` instead of drafting from scratch.

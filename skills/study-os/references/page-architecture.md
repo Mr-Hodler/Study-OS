@@ -12,6 +12,8 @@ The fixed skeleton every Study OS page follows, plus the exact Notion-flavored M
 6. **Chapters as real `## H2` headings** (H3 for sub-points). Each chapter opens with a one-line hook, then substance shaped to the material using the signposts (💡 key idea, 💬 example, 🔑 insight, ⚠️ watch out, 📚 go deeper). Chapters are NOT toggles.
 7. Page-level `## Glossary`, `## Resources`, `## Sources` at the end.
 
+Book summaries and language courses keep this skeleton and swap in their own chapter set: see `page-types.md`.
+
 **Toggles are for minor content only:** long tangents, raw data dumps, extended derivations, or appendix material. Never wrap a whole chapter in a toggle.
 
 ## Use Notion's structure aggressively (not just text)
@@ -20,10 +22,7 @@ A page that is only headings and bullets wastes the medium. Reach for these when
 
 - **Tables** for any comparison or matrix: options vs dimensions, timelines (date / milestone), families (item / how it works / strength / weakness), pros vs cons. If you find yourself writing parallel bullets that all share the same fields, it is a table.
 - **Columns** for two parallel blocks of similar weight: open vs closed, theory vs practice, before vs after, two competing positions. Saves vertical space and reads faster.
-- **Schemas / diagrams.** Prefer a real image (see image slots below). When an image is overkill, draw a simple flow as ASCII inside a fenced code block (code is rendered literally, so arrows are safe there):
-```
-Pretraining  ->  SFT  ->  RLHF / DPO  ->  aligned assistant
-```
+- **Schemas / diagrams.** Mermaid first (it renders natively, see below). Use an image slot only when the visual cannot be drawn as a diagram (a photo, an annotated real-world figure).
 - **Callouts** to make a key insight, warning, or definition pop out of the flow.
 
 ## Visuals: prefer real ones over placeholders
@@ -35,7 +34,7 @@ Full rules in `references/media-assets.md`. Order of preference:
 flowchart LR
   A["Input"] --> B["Step"] --> C["Output"]
 ```
-2. **Image by URL** only from a host known to allow hotlinking (a raw file host or an official CDN), with attribution. **Wikimedia in particular often renders blank when embedded** — see `media-assets.md`, which owns this rule. When in doubt use Mermaid or a generated file:
+2. **Image by URL** only from a host known to allow hotlinking (a raw file host or an official CDN), with attribution. **Wikimedia in particular often renders blank when embedded**: see `media-assets.md`, which owns this rule. When in doubt use Mermaid or a generated file:
 ```
 ![Descriptive alt](https://upload.wikimedia.org/.../figure.png)
 *Source: [Wikimedia Commons, CC BY-SA](https://commons.wikimedia.org/...)*
@@ -193,7 +192,7 @@ print("hello")
 
 💬 **Example:** [a concrete, real example]
 
-> Image suggestion: [what diagram/image would help here]
+[Mermaid diagram, table or columns where the material calls for it; image slot callout only if Mermaid cannot draw it]
 
 📚 **Go deeper:** [Title, Month Year](URL)
 

@@ -79,5 +79,5 @@ Default to **Audit** when unsure; never delete or overwrite content without expl
 - **Respect the boundary:** manage the material and its organization, never the user's learning state.
 
 ## Reference files
-- `references/library-operations.md` — how to read the database, do metadata hygiene, maintain the graph, and build the map.
-- `references/audit-checklist.md` — the per-page and per-library checks the Audit mode runs.
+- `references/library-operations.md`: how to read the database, do metadata hygiene, maintain the graph, and build the map.
+- `references/audit-checklist.md`: the per-page and per-library checks the Audit mode runs.
