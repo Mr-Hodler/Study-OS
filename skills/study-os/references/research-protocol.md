@@ -13,7 +13,7 @@ This is what separates Study OS from shallow AI writing. A page is not done unti
 
 ## The user's own material first
 
-- Read what the user already has before searching the web: notes, links and attachments on the page, uploaded files, and files in connected storage (a Google Drive or similar connector: search by topic and title, read the matching files).
+- Read what the user already has before searching the web: notes, links and attachments on the page, uploaded files, and files in connected storage. With a Drive mirror (`notion-operations.md` -> "Library conventions"), start from the macro-topic folder and the page's subfolder, then search the rest of the study folder by topic and title.
 - Their material sets the angle and the vocabulary; the web fills the gaps and verifies the claims. Link to their files where they back a chapter.
 - If the user mentions material in a storage that is not connected, say which connector would unlock it and continue with what is available.
 
@@ -28,7 +28,7 @@ This is what separates Study OS from shallow AI writing. A page is not done unti
 ## Media and visuals
 
 - Surface 1–3 **high-quality videos** (lectures, talks, official walkthroughs) when they genuinely add value, embedded as descriptive links.
-- Where an **image** would aid learning and Mermaid cannot draw it, place an image slot callout with a ready Google search query (`page-architecture.md`). Suggest the specific visual; never random stock images.
+- Where an **image** would aid learning and Mermaid cannot draw it, generate it or find a licensed one and upload it (`media-assets.md`). Never random stock images; an image slot only as last resort.
 - Prefer a Mermaid diagram or a table over prose when explaining a process or system.
 - When the learning is in manipulating numbers (a cost model, compounding, a sizing calculator), build an interactive artifact and link it from the page (`media-assets.md`).
 

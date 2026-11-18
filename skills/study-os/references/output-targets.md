@@ -9,13 +9,13 @@ Every output, regardless of target, carries the same parts:
 - A main topic, then chapters: each with Summary bullets and dense Content.
 - Tables for comparisons, 2-column blocks for short parallel content, bullet lists for claims, diagrams for processes.
 - Concrete examples and deep-dives for the hard parts.
-- Image slots where they aid learning.
+- Images (generated or found, uploaded) where they aid learning.
 - Sources only where they add weight (quotes, statistics, key/contested claims), as a short section per chapter or at the end.
 - Formatted links (descriptive words, never bare URLs). No em dashes anywhere.
 
 ## Rendering to Notion (default)
 
-- Use the block syntax in `page-architecture.md`: `<callout>`, `<details><summary>**Label**</summary>` (minor content only), `<table>`, `<columns>`, `<mention-page>`, `<mention-date>`, `<table_of_contents>`, Mermaid code blocks.
+- Use the block syntax in `page-architecture.md`: `<callout>`, `<toggle>` (minor content only), `<table>`, `<columns>`, `<mention url>`, `<date>`, `<table-of-contents>` inside a Contents toggle, `<image>`, Mermaid code blocks.
 - **Chapters are real headings (H2), never toggles**: see `page-architecture.md` and `writing-standards.md`, which own this rule. Toggles are for minor detail only. Links are inline `[text](url)`, never bare URLs.
 - After writing, sync the database row (`notion-operations.md`).
 
@@ -31,7 +31,8 @@ Every output, regardless of target, carries the same parts:
 | Short parallel content | `<columns>` | a 2-column layout or a compact table |
 | Deep-dive/appendix | nested toggle | an appendix section or a clearly labeled sidebar |
 | Link | inline mention/link | hyperlinked descriptive text (never a raw URL) |
-| Image slot | yellow 🖼️ callout with a search query | placed figure with caption, or a noted placeholder |
+| Image | uploaded `<image>` with caption | placed figure with caption |
+| Vertical | child page under `## Verticals` | a separate section or annex per domain |
 
 - Keep it lean and compact: a reader should skim the table of contents and jump. No padding.
 - Page numbers, a title page, and a table of contents are appropriate for longer PDFs.

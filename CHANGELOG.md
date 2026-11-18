@@ -2,6 +2,26 @@
 
 All notable changes to Study OS are documented here. The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.13.0] - 2026-11-18
+
+### Added
+- **Core and verticals:** a topic page is domain-agnostic; each domain where the topic has specific consequences (Bitcoin, finance, hardware, defence, telco) gets a child page `<Topic>: <Domain>` with a fixed skeleton, listed under `## Verticals` and mentioned from the domain hub.
+- **Library conventions** on the library home page: signpost legend (no longer repeated on every page), library language, macro-topics, Drive mirror. Study OS reads them; Study Librarian owns them.
+- **Drive mirror:** one folder per macro-topic, named like the database category (numeric prefix allowed), with per-page subfolders for material and generated assets.
+- **Database structure audit** (Librarian, Organize): mixed tags, a type used as a category, single-option selects, redundant properties, empty rows, coverage against the Drive mirror.
+- **Images without manual work:** generated charts and licensed images are uploaded to Notion through the file upload flow; interactive HTML tools are embedded. The image slot is now the last resort.
+- **Concept map** at the top of topic and hub pages; **actors** (Alice, Bob, Eve, Mallory) and sequence diagrams for protocols and attacks; a visual element in every chapter.
+- **Language course reference:** every tense and grammar topic lives complete on the root page; level pages are the route and link into it.
+
+### Changed
+- Table of contents inside a collapsed Contents toggle; closing block in columns (Glossary | Watch + Resources, then Sources).
+- Links inside the words at the point of use, not only in the Sources list.
+- Gap and conflict check runs on every Build with any input on the page, not only on pages with an index; it first separates core from verticals.
+- Book summaries: chapter by chapter in short blocks with 2 to 4 sentences of context, not one-line table cells.
+- Library language replaces the fixed English default; standard technical terms keep their usual form.
+- Notion syntax updated to the current connector format (`<mention url>`, `<date>`, `<toggle>`, `<table-of-contents>`, `<image>`); `<details>` is no longer valid.
+
+---
 ## [1.12.0] - 2026-10-04
 
 ### Added

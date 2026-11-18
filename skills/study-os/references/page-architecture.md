@@ -1,129 +1,132 @@
 # Page Architecture
 
-The fixed skeleton every Study OS page follows, plus the exact Notion-flavored Markdown block syntax to produce it. Consistency here is the whole point: a reader should recognize the structure instantly across topics.
+The fixed skeleton every Study OS page follows, plus the exact Notion markdown to produce it. Consistency is the point: a reader recognises the structure instantly across topics.
 
 ## The skeleton (in order)
 
-1. **Meta callout** (gray background): `Last Updated` + `Related`.
-2. **Purpose callout** (blue background): `Page Purpose`, `Non-scope`, and a one-line **What you get here** (the signpost legend).
-3. A warm one-paragraph **intro with a hook** (see the soul rules in `writing-standards.md`).
-4. **Sub-pages index, near the top.** If the page is a hub with sub-pages, place the child-page **cards** here under a `## Deep dives` heading. The cards already show the titles, so they ARE the index. Do NOT also add a table that just repeats the same titles next to the cards: that reads as a duplicate. If a one-line focus per sub-page helps, put a short bulleted list above the cards, not a redundant table. The reader sees the map before the content, not buried at the bottom.
-5. `# Page Topic`, a horizontal rule `---`, then `<table_of_contents/>`.
-6. **Chapters as real `## H2` headings** (H3 for sub-points). Each chapter opens with a one-line hook, then substance shaped to the material using the signposts (💡 key idea, 💬 example, 🔑 insight, ⚠️ watch out, 📚 go deeper). Chapters are NOT toggles.
-7. Page-level `## Glossary`, `## Resources`, `## Sources` at the end.
+1. **Meta callout** (gray): Last Updated, level, reading time, Related pages.
+2. **Purpose callout** (blue): Page Purpose, Non-scope, Related Pages with a one-line difference each. **No signpost legend here:** the legend lives once, on the library home page (`notion-operations.md` -> "Library conventions").
+3. **Hook**: one short paragraph that frames why the topic matters.
+4. **Contents toggle**: the table of contents inside a collapsed toggle, never as a full-width block. Skip it on pages with fewer than four chapters.
+5. **Concept map** (topic and hub pages): one small Mermaid diagram showing the parts of the topic and how they connect. It is the visual index; the reader sees the shape before the detail.
+6. **Deep dives** (hubs only): the child-page cards under `## Deep dives`. The cards ARE the index; never add a table repeating their titles.
+7. `# Page Topic`, a horizontal rule.
+8. **Core chapters** as real `## H2` headings (H3 for sub-points), domain-agnostic (see "Core and verticals").
+9. **Verticals** (when the topic has domain applications): `## Verticals` with one child-page card per domain.
+10. **Closing block in columns**: Glossary in one column, Watch and Resources in the other; Sources full width below.
 
-Book summaries and language courses keep this skeleton and swap in their own chapter set: see `page-types.md`.
+**Toggles are for minor content only:** answers to exercises, long tangents, raw data, extended derivations, full reference tables. Never wrap a whole chapter in a toggle.
 
-**Toggles are for minor content only:** long tangents, raw data dumps, extended derivations, or appendix material. Never wrap a whole chapter in a toggle.
+## Core and verticals
 
-## Use Notion's structure aggressively (not just text)
+A topic is studied once, then applied many times. Keep the two apart so the library scales.
 
-A page that is only headings and bullets wastes the medium. Reach for these whenever the material fits:
+- **Core page:** everything true regardless of industry. Physics, mechanism, standards, generic risk and mitigation. It mentions a domain only as an example, never as a chapter.
+- **Vertical page:** one child page per domain where the topic has specific consequences (Bitcoin, finance and banking, hardware, defence, telco, healthcare). Title: `<Topic>: <Domain>` (for example `Quantum & Post-Quantum: Bitcoin`).
+- **Vertical skeleton:** the standard meta and purpose callouts (Non-scope points back to the core), then `## Exposure` (what in this domain is affected and how much), `## Specific threats or opportunities`, `## State of play` (dated: proposals, projects, regulation), `## What to do` (a table by actor), closing block.
+- **Indexing:** the core page lists verticals under `## Verticals` as cards with a one-line focus each. A domain hub elsewhere in the library (for example a Bitcoin page) links to its vertical with an inline mention, so the vertical is reachable from both sides.
+- **When to split:** as soon as a domain needs more than two paragraphs. A vertical of one paragraph stays as an example inside the core.
 
-- **Tables** for any comparison or matrix: options vs dimensions, timelines (date / milestone), families (item / how it works / strength / weakness), pros vs cons. If you find yourself writing parallel bullets that all share the same fields, it is a table.
-- **Columns** for two parallel blocks of similar weight: open vs closed, theory vs practice, before vs after, two competing positions. Saves vertical space and reads faster.
-- **Schemas / diagrams.** Mermaid first (it renders natively, see below). Use an image slot only when the visual cannot be drawn as a diagram (a photo, an annotated real-world figure).
-- **Callouts** to make a key insight, warning, or definition pop out of the flow.
+## Use Notion's structure aggressively
 
-## Visuals: prefer real ones over placeholders
+A page of headings and bullets wastes the medium. Every chapter carries at least one visual element unless it is three lines long:
 
-Full rules in `references/media-assets.md`. Order of preference:
+- **Tables** for comparisons, matrices, timelines, families (item / how it works / strength / weakness). Parallel bullets that share the same fields are a table.
+- **Columns** (2 or 3) for parallel blocks of similar weight: before and after, two positions, physical vs logical, and the closing block.
+- **Diagrams** (Mermaid) for every process, protocol, dependency or decision. Protocols and attacks use a `sequenceDiagram` with named actors: Alice and Bob for the honest parties, Eve for a passive eavesdropper, Mallory for an active attacker. Decisions use a flowchart. Topic overviews use a concept map.
+- **Images** for what Mermaid cannot draw: a real photo, a hardware shot, a data chart. Found and uploaded, or generated and uploaded (`media-assets.md`). An image slot is the last resort.
+- **Callouts** to make a key insight, warning or definition stand out.
 
-1. **Mermaid** for any diagram/schema (renders natively):
-```mermaid
-flowchart LR
-  A["Input"] --> B["Step"] --> C["Output"]
-```
-2. **Image by URL** only from a host known to allow hotlinking (a raw file host or an official CDN), with attribution. **Wikimedia in particular often renders blank when embedded**: see `media-assets.md`, which owns this rule. When in doubt use Mermaid or a generated file:
-```
-![Descriptive alt](https://upload.wikimedia.org/.../figure.png)
-*Source: [Wikimedia Commons, CC BY-SA](https://commons.wikimedia.org/...)*
-```
-3. **Image slot** when a real image is needed and no clean URL exists. Make it a visible yellow callout placed exactly where the image goes, and always include a ready Google search query so the user can find and drop it in one step:
-```
-<callout icon="🖼️" color="yellow_bg">
-	**Image to add here.**
-	**What:** [precise description]
-	**Search Google for:** "[specific query]"  (Google Images)
-	**Why:** [what it clarifies]
-</callout>
-```
-For a chart the skill generated as a file, the slot names the file instead: `**Drop image here:** filename.png (generated, see chat). **Shows:** ...`.
-Do NOT use `<image>` or `<embed>` tags; the connector renders them as literal text. Videos go in a short `## Watch` list of links. Full rules in `references/media-assets.md`.
+## Links inside the words
 
-## Chapter depth (what a good chapter contains)
+Cite at the point of use: the words that carry the claim are the link. *NIST [finalized the first three standards in August 2024](url)*, not a bare statement with a footnote at the bottom. The Sources section still lists the main references, but the reader should never have to scroll to verify a sentence. Internal pages are mentions, not URLs.
 
-Shape varies, but a strong chapter usually has: a one-line hook, 💡 a key idea, the substance (bullets/table/columns/diagram), 💬 a concrete or numeric example, ⚠️ a common misconception where one exists, and 📚 go deeper. For meaty topics add a 🧭 **open question / frontier** line. Keep a page-level **level** (beginner / intermediate / advanced) and **reading time** in the meta callout.
+## Signpost system
 
-## Signpost system (the soul layer)
+Inline bold labels, used consistently. The legend is on the library home page, not on each page.
 
-Use these consistently so every page feels familiar and scannable. Apply as inline bold labels or small callouts:
-- 💡 **Key idea** - the core insight in one or two lines.
-- 💬 **Example** - a concrete, real example or mini-scenario.
-- 🧩 **Analogy** - a familiar comparison for an abstract or technical idea (use for complex topics).
-- 🔑 **Insight** - a sharp, memorable rule of thumb.
-- ⚠️ **Watch out** - a common mistake, risk, or misconception.
-- 🧭 **Open question** - what is unsettled or at the frontier.
-- 📚 **Go deeper** - sources and the deep-dive sub-page.
+- 💡 **Key idea:** the core insight in one or two lines.
+- 💬 **Example:** a concrete, real example or mini-scenario, often numeric.
+- 🧩 **Analogy:** a familiar comparison for an abstract or technical idea.
+- 🔑 **Insight:** a sharp rule of thumb.
+- ⚠️ **Watch out:** a common mistake, risk or misconception.
+- 🧭 **Open question:** what is unsettled or at the frontier.
+- 📚 **Go deeper:** a source or a deep-dive page.
 
-## Block syntax (Notion-flavored Markdown)
+## Chapter depth
 
-Verified against live Notion content. Use exactly these forms. When unsure, fetch a known well-formatted page and mirror its syntax rather than guessing.
+A strong chapter has: a one-line hook, 💡 a key idea, the substance (table, columns, diagram, steps), 💬 a concrete or numeric example, ⚠️ a misconception where one exists, and a link to go deeper. Meaty topics add a 🧭 open question. The shape varies per chapter; never repeat one rigid template.
+
+## Block syntax (Notion markdown, current)
+
+Verified against the live connector. When unsure, fetch a well-formatted page and mirror its syntax; the connector's own spec is at `notion://docs/enhanced-markdown-spec`.
+
+- **Bold, italic, links:** `**bold**` or `<b>bold</b>`, `*italic*`, `[descriptive words](https://url)`.
+- **Page mention:** `<mention url="https://app.notion.com/p/PAGE_ID"/>` (renders the live title).
+- **Date:** `<date start="2026-11-18" />`.
+- **Child page card:** `<page url="https://app.notion.com/p/PAGE_ID">Title</page>`.
+- **Table of contents:** `<table-of-contents color="gray" />`.
+- **Image:** `<image source="file-upload://ID">Caption</image>` after an upload, or `![Caption](https://url)`.
+- **HTML embed (interactive tool):** `<embed source="file-upload://ID" />` after uploading an `.html` file.
+- **Do not use** `<details>`, `<summary>`, `<div>` or other raw HTML: they are saved as literal text.
 
 ### Callouts
 ```
-<callout icon="💡" color="blue_bg">
-	**Page Purpose:** What this page contains and why it exists.
-	**Non-scope:** What this page deliberately does not cover.
-	**Related Pages:**
-	- <mention-page url="https://www.notion.so/PAGE_ID"/> – relationship and difference
-</callout>
-```
-Common colors: `gray_bg` (neutral/meta), `blue_bg` (insight/purpose), `green_bg` (positive). Use `icon` optionally.
-
-### Meta callout
-```
 <callout color="gray_bg">
-	**Last Updated:** <mention-date start="2026-05-30"/>
-	**Related Pages:** <mention-page url="..."/>
+**Last Updated:** <date start="2026-11-18" /> • **Level:** intermediate • **Reading time:** ~20 min
+**Related Pages:** <mention url="..."/> • <mention url="..."/>
+</callout>
+
+<callout icon="⚛️" color="blue_bg">
+**Page Purpose:** what this page is and why it exists.
+**Non-scope:** what it deliberately excludes, and where that lives.
+**Related Pages:**
+
+- <mention url="..."/>: relationship and difference.
 </callout>
 ```
+Colors: `gray_bg` neutral or meta, `blue_bg` insight or purpose, `green_bg` positive outcome, `yellow_bg` image slot or work to do.
 
-### Headings + rule
+### Contents toggle
 ```
-# Main Topic
----
-## Subsection
-### Detail
-```
+<toggle>
+**Contents**
 
-### Chapter as a heading (default)
-A chapter is an `## H2` heading with a hook line, then substance. Example shape (vary it per topic):
-```
-## Tokenization, the model's alphabet
-
-Models never see words. They see tokens, and that single fact explains cost, context limits, and why they fumble rare strings.
-
-💡 **Key idea:** text is split into subword fragments mapped to integer IDs, then to learned vectors.
-
-- **Why subwords:** whole-word vocabularies explode and break on new words; BPE splits "tokenization" into `token` + `ization`.
-- **Why it matters:** pricing, latency, and the context window are all counted in tokens, not words.
-
-💬 **Example:** "1 token is about 0.75 English words, so a 1,000-word memo is roughly 1,300 tokens."
-
-📚 **Go deeper:** [BPE, Sennrich et al., 2016](https://arxiv.org/abs/1508.07909)
+<table-of-contents color="gray" />
+</toggle>
 ```
 
-### Toggle (minor / appendix content only)
-Use a toggle to tuck away a long tangent, a raw table, or extended detail. Put the label in `<summary>` as **bold text** and indent the body:
+### Toggle (minor content) and toggle heading
 ```
-<details>
-<summary>**Appendix: full derivation**</summary>
+<toggle>
+**Solutions**
 
-	- step by step detail that would clutter the main flow
-</details>
+- answer 1
+</toggle>
+
+<toggle heading="h3">
+Full conjugation tables
+
+table or list here
+</toggle>
 ```
-Avoid `->` arrow notation inside Notion text; the `>` gets escaped. Write "then" or build a real diagram instead.
+The title is the first line after the opening tag; children follow a blank line.
+
+### Columns
+```
+<columns>
+<column ratio="50">
+### Pros
+
+- ...
+</column>
+<column ratio="50">
+### Cons
+
+- ...
+</column>
+</columns>
+```
 
 ### Tables
 ```
@@ -133,84 +136,84 @@ Avoid `->` arrow notation inside Notion text; the `>` gets escaped. Write "then"
 </table>
 ```
 
-### Columns (space-saving, 2 parallel short blocks)
+### Mermaid
+````
+```mermaid
+sequenceDiagram
+  participant A as Alice
+  participant B as Bob
+  participant E as Eve
+  A->>B: public key exchange
+  E-->>E: records the traffic
+```
+````
+Quote node labels that contain punctuation. Avoid `->` arrows in normal text (they get escaped); write "then" or draw a diagram.
+
+### Closing block
 ```
 <columns>
-	<column>
-		### Pros
-		- ...
-	</column>
-	<column>
-		### Cons
-		- ...
-	</column>
-</columns>
-```
-
-### Mentions, links, TOC
-- Page mention: `<mention-page url="https://www.notion.so/PAGE_ID"/>`
-- Date mention: `<mention-date start="2026-05-30"/>`
-- Linked child page block: `<page url="https://www.notion.so/PAGE_ID">Title</page>`
-- Table of contents: `<table_of_contents color="gray"/>`
-- Inline link in descriptive text: `[descriptive text](https://example.com)` - never a bare URL.
-
-### Code blocks
-Use fenced code with a language hint for commands/snippets:
-```
-​```python
-print("hello")
-​```
-```
-
-## Standard page template (fill the brackets)
-
-```
-<callout color="gray_bg">
-	**Last Updated:** <mention-date start="YYYY-MM-DD"/>
-	**Related Pages:** <mention-page url="..."/>
-</callout>
-
-<callout icon="💡" color="blue_bg">
-	**Page Purpose:** [what this page is and why it exists]
-	**Non-scope:** [what it deliberately excludes; point to where that lives]
-	**Related Pages:**
-	- <mention-page url="..."/> – [relationship + difference]
-</callout>
-
-# [Page Topic]
----
-<table_of_contents color="gray"/>
-
-## [Chapter Title]
-
-[one-line hook that frames why this matters]
-
-💡 **Key idea:** [core insight in one or two lines]
-
-- **[label]:** [dense, expert-level point]
-- **[label]:** [dense, expert-level point]
-
-💬 **Example:** [a concrete, real example]
-
-[Mermaid diagram, table or columns where the material calls for it; image slot callout only if Mermaid cannot draw it]
-
-📚 **Go deeper:** [Title, Month Year](URL)
-
-## [Next Chapter Title]
-[hook] ... shape the substance to fit the material (table, steps, two positions, etc.)
-
+<column ratio="50">
 ## Glossary
+
 - **Term:** definition.
+</column>
+<column ratio="50">
+## Watch
+
+- [Video title](url)
 
 ## Resources
-- [Descriptive title](URL)
+
+- [Resource title](url)
+</column>
+</columns>
 
 ## Sources
-- [Title, Month Year](URL)
+
+- [Title, Month Year](url)
+```
+
+## Standard page template
+
+```
+[meta callout]
+[purpose callout]
+
+[hook paragraph]
+
+<toggle>
+**Contents**
+
+<table-of-contents color="gray" />
+</toggle>
+
+[concept map: mermaid]
+
+# [Page Topic]
+
+---
+
+## [Chapter]
+
+[one-line hook]
+
+💡 **Key idea:** [core insight]
+
+[table / columns / diagram]
+
+💬 **Example:** [concrete case, with an inline [linked source](url)]
+
+## Verticals
+
+One page per domain where the topic has specific consequences.
+
+<page url="...">[Topic]: [Domain]</page>
+
+[closing block]
 ```
 
 ## Notes on chapters
 
-- Chapters are headings, not toggles. Vary the internal shape per chapter; do not repeat one rigid template.
+- Chapters are headings, not toggles. Vary the internal shape per chapter.
 - Reserve toggles for minor or appendix content. Do not deep-nest toggles.
-- Keep operational timelines/checklists in an appendix; keep the main chapters conceptual for theory pages.
+- After a `<page>` card, start the next block with a heading or a paragraph, never a bare list item.

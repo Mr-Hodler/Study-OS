@@ -1,6 +1,10 @@
 # Index Completion: gaps and conflicts
 
-When the target page already has an index (a list of chapters, headings with no body, toggles with titles only, a "Deep dives" list, or notes that imply a structure), do not just fill it. An index written before studying the topic is a guess: it usually misses what the reader does not yet know exists, and it often repeats what another page already covers. Run these three checks first, then fill.
+Runs on every Build where the page already has something on it: an index, headings with no body, title-only toggles, a "Deep dives" list, or just a line of keywords and a few links. That raw material is the user's guess at the topic, written before studying it: it usually misses what the reader does not yet know exists, it often repeats what another page already covers, and it may mix the core topic with one industry's application. Run these checks first, then fill.
+
+## 0. Separate core from verticals
+
+Sort the keywords into the domain-agnostic core and the domain applications ("bitcoin and banking pre and post quantum" are two verticals of a quantum page). Verticals become child pages (`page-architecture.md` -> "Core and verticals").
 
 ## 1. Extract the index as written
 

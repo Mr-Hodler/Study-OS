@@ -28,7 +28,7 @@ A correct page that reads like a generated template is a failure. Pages must hav
 
 - **Open with a hook, not boilerplate.** The first line of a chapter should say why this matters or frame a tension, then deliver the substance. Avoid "This chapter covers..." openings.
 - **Vary the structure.** Do not repeat an identical "Summary / Content" skeleton in every chapter. Let the shape follow the material: a comparison becomes a table, a process becomes numbered steps, a debate becomes two short positions, a definition-heavy topic becomes tight bullets.
-- **Use a consistent signpost system** so readers know what they are looking at. Recommended icons, used as inline bold labels or small callouts:
+- **Use a consistent signpost system** so readers know what they are looking at. The legend is written once on the library home page, never repeated on each page. Icons, used as inline bold labels:
   - 💡 **Key idea** - the core insight in one or two lines.
   - 💬 **Example** - a concrete, real example or mini-scenario.
   - 🧩 **Analogy** - a familiar comparison that makes an abstract or technical idea click.
@@ -37,6 +37,7 @@ A correct page that reads like a generated template is a failure. Pages must hav
   - 🧭 **Open question** - what is still unsettled or at the frontier.
   - 📚 **Go deeper** - sources and the deep-dive sub-page.
 - **For complex or technical topics, include analogies, not just examples.** When a concept is abstract (cryptography, math, distributed systems), give the reader a familiar mental model (a lock and key, a tree, a sealed envelope) alongside the precise definition. One good analogy can save three paragraphs.
+- **Make it concrete with actors.** Protocols, attacks and flows are explained as a short story with named parties (Alice and Bob, Eve listening, Mallory tampering) and drawn as a sequence diagram. The reader remembers who did what far longer than an abstract description.
 - **Write like an expert talking to a smart peer**, not an encyclopedia. Confident, concrete, occasionally opinionated where the field has a clear consensus. Name the debate where it is genuinely contested.
 - **Concrete beats abstract.** Prefer a real number, a named tool, a dated event, or a worked example over a generic statement.
 - This soul layer never excuses padding. Stay dense; personality lives in framing and selection, not in extra words.
@@ -48,7 +49,7 @@ A correct page that reads like a generated template is a failure. Pages must hav
 - **Never use an em dash (—) anywhere, in any output, in any mode.** Not in Notion pages, not in PDFs/documents, not in chat. Replace with a comma, a colon, parentheses, or split into two sentences. The only exception is verbatim quoted source text, which is preserved exactly; do not introduce em dashes of your own.
 - Heading hierarchy is strict: **H1** = main topic, **H2** = subsections, **H3** = details.
 - **Do not number titles or chapters** unless the items have a real numeric/priority order.
-- Embed hyperlinks inside descriptive text. **No bare URLs.** Also avoid putting a dotted domain (e.g. "Distill.pub", "arxiv.org") in the visible link text: Notion auto-links it and creates a broken double-link. Use plain words like "Distill" or "the arXiv paper".
+- Embed hyperlinks inside descriptive text, **at the point of use**: the words that carry a claim are the link to its source. A Sources list at the bottom does not replace inline links. **No bare URLs.** Also avoid putting a dotted domain (e.g. "Distill.pub", "arxiv.org") in the visible link text: Notion auto-links it and creates a broken double-link. Use plain words like "Distill" or "the arXiv paper".
 - Cite sources whenever referencing official data, statistics, or academic/industry material.
 - Apply color coding consistently: **gray** = neutral info, **blue** = insight, **green** = positive outcome/recommended practice.
 - Keep similar content types (frameworks, processes, analyses) in the **same format** every time.
@@ -58,7 +59,7 @@ A correct page that reads like a generated template is a failure. Pages must hav
 - **Table** - comparing 3+ options or 3+ dimensions, or when the reader scans values across rows/columns.
 - **Bullet list** - principles, checklists, narrative guidance.
 - **Diagram / flowchart** - when the goal is to explain a process, sequence, or system interaction.
-- **2 columns** - to save space when a section has only a little content (a short heading + 2–6 bullets) and it splits cleanly without changing words. Do not split a single logical sequence across columns. Limit to 2 columns unless 3+ is already intentional.
+- **2 or 3 columns** - to save space when blocks are parallel and short (a heading + 2 to 6 bullets each), and always for the closing block (Glossary | Watch + Resources). Do not split a single logical sequence across columns.
 
 ## Bullet formatting
 
@@ -82,7 +83,7 @@ A correct page that reads like a generated template is a failure. Pages must hav
 
 ## Study pages (extra care)
 
-- **Language:** English by default; match the language of the target page or database when it already has one; the user's explicit request overrides both.
+- **Language:** the library language declared on the library home page or stated by the user; otherwise the language of existing pages; otherwise English. Established technical terms keep their standard form, usually English (qubit, hash, signature, smart contract, mempool, layer 2): translating them makes the page harder to connect with sources.
 - **Terminology:** use only the word **"Chapter"**.
 - **Chapter titles:** never numbered ("Chapter - Title", not "Chapter 1 - Title"), unless a real numeric/priority order exists.
 - **Chapters are real headings (H2), not toggles.** Use H1 for the page topic, H2 for chapters, H3 for sub-points. Reserve toggles for minor or appendix content only (long tangents, raw data, extended examples). A page that is a wall of collapsed toggles is wrong.
@@ -93,7 +94,8 @@ A correct page that reads like a generated template is a failure. Pages must hav
 - **Sub-pages at the top:** if the page has sub-pages, their cards sit under `## Deep dives` near the top. The cards are the index; no table repeating their titles.
 - **Exploit Notion structure:** use tables for comparisons/matrices/timelines, columns for parallel blocks, callouts for key points, and Mermaid for schemas and flows. A page of only bullets is under-built.
 - **Sources / Links / Glossary:** keep a short section at the end of each chapter or the page; cite generously where claims, data, or quotes appear.
-- **Images:** add an explicit **image slot** callout (🖼️ what / search query / why, see `page-architecture.md`) exactly where a visual belongs. Study OS does not upload images, so tell the user precisely what to add and where.
+- **Images:** find and upload, or generate and upload, every image the page needs (`media-assets.md`). An image slot for the user is the last resort.
+- **Core and verticals:** domain-specific material (Bitcoin, banking, defence) goes in vertical child pages, not in the core chapters (`page-architecture.md`).
 
 ## Page intro discipline (anti-duplication)
 

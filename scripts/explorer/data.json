@@ -36,7 +36,7 @@
     "For a page that already has an index: an amended index table (keep, add, move, merge, split, link) and a conflicts table against the rest of the library, in chat, before writing",
     "The page written or updated in place against the fixed skeleton: meta callout, purpose callout with Non-scope, intro hook, table of contents, chapters as real <code>H2</code> headings, then Glossary, Resources and Sources",
     "The database row synced from the live schema: title, category, scope, a one or two line description, reading order, page URL and editorial page state. Personal state (learning status, review dates, read or listened, ratings) is never touched",
-    "Mermaid diagrams inline, a yellow image slot with a ready search query at the exact spot each visual belongs, any generated chart as a file, an interactive artifact where changing numbers teaches more than reading them, and a short <code>## Watch</code> list",
+    "Mermaid diagrams inline (a concept map on topic pages, sequence diagrams with actors for protocols), charts generated and uploaded, licensed images found and uploaded, interactive HTML embeds where changing numbers teaches more, and a short Watch list. An image slot only as last resort",
     "Handoff callouts for the four app-only tasks the API cannot do",
     "The same content model rendered to PDF or a document, where that is the target"
    ],
@@ -413,6 +413,27 @@
    "e": "",
    "d": "Properties that describe the reader, not the material: learning status, review dates, read or listened, ratings, owned formats. Read if useful, never written.",
    "o": "notion-operations.md"
+  },
+  {
+   "g": "The page",
+   "t": "Vertical",
+   "e": "",
+   "d": "A child page applying a topic to one domain (Bitcoin, finance, defence), titled Topic: Domain. Keeps the core page agnostic and lets new domains be added without rewriting it.",
+   "o": "page-architecture.md"
+  },
+  {
+   "g": "The library",
+   "t": "Library conventions",
+   "e": "",
+   "d": "Rules for the whole library kept once on the library home page: signpost legend, library language, macro-topics, Drive mirror. Study OS reads them, Study Librarian owns them.",
+   "o": "library-operations.md"
+  },
+  {
+   "g": "The library",
+   "t": "Drive mirror",
+   "e": "",
+   "d": "One folder per macro-topic in the user's study folder, named like the database category, with per-page subfolders for material and generated assets. Lets the material live with or without Notion.",
+   "o": "library-operations.md"
   }
  ],
  "own": [

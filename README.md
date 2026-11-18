@@ -1,6 +1,6 @@
 # Study OS
 
-![version](https://img.shields.io/badge/version-1.12.0-blue)
+![version](https://img.shields.io/badge/version-1.13.0-blue)
 
 ![Study OS: turn rough notes into deep, consistent study pages in Notion or as a PDF](assets/cover.svg)
 
@@ -12,8 +12,8 @@ Built to fix a common problem: generic AI writing stays shallow and high-level. 
 
 This plugin ships two complementary skills:
 
-- **Study OS**: authors one page. Reads a Notion page, its existing index or your prompt, plus your own files, researches with dated sources, and writes a deep, dense, structured study page (Notion or PDF). Three page types: **topic**, **book summary**, **language course**. Modes: **Build**, **Reformat**, **Explain**, **Refresh**.
-- **Study Librarian**: curates the collection. Audits structure and consistency across all pages, fixes metadata, maintains the prerequisite/related knowledge graph, deduplicates, and builds a library map. Modes: **Audit**, **Organize**, **Map**, **Dedupe**. It manages the material and its organization, never your personal learning state.
+- **Study OS**: authors one page. Reads a Notion page, its existing index or your prompt, plus your own files, researches with dated sources, and writes a deep, dense, structured study page (Notion or PDF). Three page types: **topic** (agnostic core plus domain **verticals**), **book summary**, **language course** (central reference plus a route per level). Images are generated or found and uploaded, not left to you. Modes: **Build**, **Reformat**, **Explain**, **Refresh**.
+- **Study Librarian**: curates the collection. Audits structure and consistency across all pages, fixes metadata, maintains the prerequisite/related knowledge graph, deduplicates, and builds a library map. Modes: **Audit**, **Organize**, **Map**, **Dedupe**. It also keeps the library conventions (signpost legend, language, macro-topics) and an optional Drive folder mirror aligned with the database. It manages the material and its organization, never your personal learning state.
 
 > Study OS = build a page. Study Librarian = curate the library of pages.
 
@@ -141,6 +141,6 @@ MIT. See [LICENSE](LICENSE). Copyright (c) 2026 Aron Clementi.
 
 **Download [`guide/study-os-explorer.html`](./guide/study-os-explorer.html) and open it in a browser.** GitHub shows HTML as source, so use the download button. One self-contained file, no dependencies, and it ships inside every skill package.
 
-It is organised by **the job you are doing**, not by the skill. Four tabs: the 5 jobs with their chains, the rules that make each work and what breaks it · the 2 skills as cards with clickable boundaries · how it holds together · a glossary of 46 terms, one line each.
+It is organised by **the job you are doing**, not by the skill. Four tabs: the 5 jobs with their chains, the rules that make each work and what breaks it · the 2 skills as cards with clickable boundaries · how it holds together · a glossary of 49 terms, one line each.
 
 **For everything about one skill, open its `SKILL.md`.** The explorer is how they fit together and deliberately does not restate them.

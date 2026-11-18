@@ -30,3 +30,7 @@ dist/
 __pycache__/
 *.pyc
 .obsidian/
+
+# Segreti e file locali di Claude, mai nei commit
+.claude/settings.local.json
+CLAUDE.local.md

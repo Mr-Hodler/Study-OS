@@ -7,12 +7,14 @@ What the Audit mode checks across the library. Audit is read-only: it reports, i
 - [ ] Has a purpose callout with Page Purpose and Non-scope.
 - [ ] Chapters are real headings, not a wall of toggles.
 - [ ] Has a Sources section where claims/data/quotes appear; volatile facts are dated.
-- [ ] Uses the signpost system consistently (key idea / example / insight / watch out / go deeper).
+- [ ] Uses the signpost system consistently, without repeating the legend on the page.
+- [ ] Table of contents inside a Contents toggle; closing block in columns.
+- [ ] Domain material in vertical child pages, not mixed into the core chapters.
 
 ## Per-page hygiene
 - [ ] No em dashes (—) outside verbatim quotes.
 - [ ] No bare URLs; links are descriptive text; no dotted-domain link labels.
-- [ ] No blank image boxes (failed external image embeds); diagrams use Mermaid where possible.
+- [ ] No blank image boxes and no image slots that could have been filled (generated or uploaded); diagrams use Mermaid where possible.
 - [ ] No leftover placeholders, test blocks, or broken links.
 - [ ] Headings consistent; one bullet style per section.
 
@@ -29,6 +31,8 @@ What the Audit mode checks across the library. Audit is read-only: it reports, i
 - [ ] Prerequisite graph is acyclic and matches the "read after" notes in page intros.
 - [ ] Hub/index pages link to all current pages; no dead or missing cards.
 - [ ] Obvious **gaps**: expected topics for this subject that no page covers.
+- [ ] The library home carries the legend and conventions; the Drive mirror matches the macro-topics.
+- [ ] Database structure audit done (`library-operations.md` -> "Database structure audit").
 
 ## Output
 - A prioritized, scannable report: blockers first, then should-fix, then nice-to-have, each with the page link and the one-line fix.

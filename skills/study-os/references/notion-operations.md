@@ -1,73 +1,84 @@
 # Notion Operations
 
-How to read, write, and manage Notion safely and agnostically. The MCP tool names below use the Notion connector; the exact server prefix varies, so match on the operation name (fetch, search, create-pages, update-page, update-data-source).
+How to read, write and manage Notion safely and agnostically. Tool names follow the Notion connector; the server prefix varies, so match on the operation (fetch, search, create-pages, update-page, update-data-source, create-file-upload, create-attachment).
 
 ## Read first, always
 
-1. **Fetch the page** the user points to: `notion-fetch` with the page URL or ID. Read all existing keywords, notes, links, child pages, and structure. This is your input.
-2. **Fetch the parent database** to learn the schema: `notion-fetch` on the database URL, then on the `collection://<data_source_id>` shown in the `<data-source url="...">` tag. The response includes the property schema and a SQLite table definition. **Read property names and option values from here. Never hardcode them.**
-3. If a database has multiple data sources, pick the right `data_source_id` for the situation.
+1. **Fetch the page** the user points to. Every keyword, note, link and child page on it is input.
+2. **Fetch the parent database**, then its `collection://` data source: property names, option values and the SQLite table come from there. **Never hardcode them.**
+3. **Fetch the library home** (the page that contains the study database) once per session: it carries the library conventions below.
+4. If a database has several data sources, pick the right one.
+
+## Library conventions
+
+Some rules belong to the whole library, not to one page. They live once, on the library home page, in a toggle named "Legend and conventions" (create it if missing, with the user's consent):
+
+- **Signpost legend:** the emoji and their meaning. Pages use the signposts without repeating the legend.
+- **Library language:** the language study pages are written in. Established technical terms stay in their standard form (usually English: qubit, hash, smart contract, signature, mempool) even when the page is in another language. If the home page does not say, follow the user's stated preference, then the language of existing pages, then English.
+- **Macro-topics:** the category options of the study database. They are the single taxonomy for Notion and for file storage.
+- **Drive mirror (optional):** one folder per macro-topic in the user's study folder, named like the category (a numeric prefix such as `22_` is allowed and ignored when matching). A table on the home page maps category to folder when names differ. Per-page subfolders are created on demand, named like the page, and hold the page's own material and generated assets.
+
+Study OS reads these conventions; Study Librarian owns and maintains them.
 
 ## Schema detection (agnostic)
 
-Map the page to whatever properties actually exist. Typical study schemas include some of:
-- A **title** property (may not be literally named "title" - use the schema).
-- A **category / topic** multi-select (read its existing options; reuse them, don't invent).
-- A **scope** select (e.g. Theory / Practice).
-- A short **content description** text.
-- A **reading order** number.
-- A **done** checkbox.
-- A **page URL** url property.
-- System/readonly props (last edited time, owner) - never try to write these.
+Map the page to whatever properties exist. Typical study schemas include some of:
+- a **title**; a **category** multi-select (reuse its options); a **scope** select (Theory / Practice); a short **content description**; a **reading order** number; a **prerequisites** self-relation; an editorial **page state**.
+- **Personal state** (never written): learning status, review dates, done or read checkboxes, personal ratings, owned formats.
+- **System or read-only** properties (last edited time, created by): never written.
 
-If a useful property is missing, proceed with what exists. Only add a property via `notion-update-data-source` (DDL `ADD COLUMN`) with explicit user consent.
+A page with two natures takes two categories (for example a STEM topic with a Bitcoin vertical: the STEM category plus the Bitcoin category). Never invent an option; propose it to the user, and to Study Librarian for the taxonomy.
+
+If a useful property is missing, proceed with what exists. Add or change properties (`notion-update-data-source`) only with explicit consent.
 
 ## Writing content
 
-Use `notion-update-page`:
-- `insert_content` - append (or prepend with `position: start`) new blocks. Best for adding chapters to an existing page.
-- `update_content` - search-and-replace specific snippets. Fetch the page first to get exact `old_str` to match.
-- `replace_content` - replace the whole body. **Danger:** if the page has child pages/databases, they will be flagged for deletion. To preserve them, include them in `new_str` as `<page url="..."/>` / `<database url="..."/>`, or set `allow_deleting_content` deliberately. Prefer `insert_content`/`update_content` over wholesale replace on populated pages.
+`notion-update-page`:
+- `update_content`: search-and-replace exact snippets from a fresh fetch. Best for targeted edits.
+- `insert_content`: append, or prepend with `position: start`.
+- `replace_content`: the whole body. **Danger:** child pages and databases not included as `<page url="...">` / `<database url="...">` tags are flagged for deletion. Include every one, never set `allow_deleting_content` without the user's consent.
 
-To create a brand-new study page under the database: `notion-create-pages` with `parent: { data_source_id }`, set `properties` from the schema, and put the body in `content` (do NOT repeat the title in content).
+New pages: one `notion-create-pages` call with the full body. Under a database, use its data source as parent and set the properties from the schema. A vertical or deep dive is a child page of its core page (parent `page_id`); it is not a database row.
 
-Always use the block syntax in `page-architecture.md`. Do not guess syntax; mirror a known good page if unsure.
+Use the block syntax in `page-architecture.md`. If a fetch shows a syntax you have not seen, mirror it.
 
-## Edit efficiency (save tokens, reduce risk)
+## Edit efficiency
 
-- **New page:** write it in a single `create-pages` call. Do not create empty then rebuild.
-- **Existing page, small change:** use `update_content` (surgical search-and-replace) or `insert_content`. Re-sending the whole page as `replace_content` wastes tokens and forces you to re-include every preserved block (child pages, file attachments), which is where mistakes happen.
-- **Reserve `replace_content`** for a genuine full restructure. When you must use it, include every child page (`<page url=...>`) and attachment (`<file src=...>`) in the new content so nothing is deleted.
-- Prefer one well-planned write over several iterative rewrites of the same page.
-- **After a `<page>` card, start the next block with a heading or a paragraph, not a bare list item.** A list bullet placed immediately after a child-page card can get absorbed into the card area on render. Put a sentence or heading between them.
+- **New page:** a single create call, never empty-then-rebuild.
+- **Existing page, small change:** `update_content`. Re-sending a whole page wastes tokens and is where child pages get lost.
+- **`replace_content`** only for a genuine restructure, with every `<page>` and file tag preserved.
+- **Moving content into a new child page:** create the child page first, then remove the moved blocks from the parent with `update_content`, then re-fetch both.
+- Child pages created through the API appear at the bottom of the parent. To show the card where it belongs, move the `<page url>` tag with one `update_content` that deletes it at the bottom and inserts it in place (same call, so it is a move, not a deletion).
+- **After a `<page>` card**, start the next block with a heading or a paragraph, never a bare list item.
 
 ## Database management
 
-After the page content is written:
-1. Set/refresh the row properties using the schema names you read:
-   - title, category (from existing options), scope (Theory/Practice), 1–2 line content description, reading order, page URL, done.
-   - Checkbox values use `"__YES__"` / `"__NO__"`.
-   - Number properties are real numbers, not strings.
-   - Properties literally named `id` or `url` must be prefixed `userDefined:` (e.g. `userDefined:URL`).
-   - Date properties split into `date:{prop}:start`, optional `date:{prop}:end`, `date:{prop}:is_datetime`.
-2. Keep **reading order** coherent with siblings if the property exists.
-3. Enforce **anti-duplication**: if a sibling covers part of the topic, record the difference in Non-scope / Related Pages instead of duplicating content.
-4. **Learning workflow (if the schema has them):**
-   - **Status** (To learn / Learning / Reviewed / Mastered): set when a page is created or studied.
-   - **Next review** (date): set a spaced interval after study (Learning -> a few days, Reviewed -> ~2 weeks, toward Mastered -> ~1 month). A daily scheduled task can surface pages due for review.
-   - **Prerequisites** (self-relation): link a page to the study items it should be read after, building a prerequisite graph across the library. Mirror this in the page's intro callout ("Read after Part X").
+After the content is written, update the row from the live schema: title, category, scope, a 1 to 2 line content description, reading order coherent with siblings, page URL if tracked, editorial page state, prerequisites. Formats: checkboxes `"__YES__"` / `"__NO__"`; numbers as numbers; properties named `id` or `url` prefixed `userDefined:`; dates as `date:{prop}:start`.
+
+Anti-duplication: if a sibling covers part of the topic, record the split in Non-scope and Related, never copy the content.
+
+## Database structure checks
+
+When a database is touched for the first time in a session, glance at its structure and report (do not fix without consent):
+- options that mix two concepts in one tag (a topic and a technology, a topic and a type);
+- a type used as a category (for example "Guide" as a category when a Scope property exists);
+- redundant properties (a Page URL property on rows that are pages; two checkboxes meaning the same state);
+- select properties with a single option;
+- untitled or empty rows;
+- macro-topics without a matching Drive folder, or folders without a category.
+
+Structural fixes belong to Study Librarian (Organize).
 
 ## Knowledge graph linking
 
-Pages should not be islands. Connect them:
-- **Related** lines in the purpose callout for sibling/overlapping pages.
-- **Prerequisites** relation in the database for ordered dependencies.
-- Inline `<mention-page url="..."/>` links wherever one page references a concept that lives in another. A well-linked library is itself a study aid.
+- **Related** lines in the purpose callout for siblings.
+- **Prerequisites** relation for ordered dependencies.
+- **Inline mentions** wherever a page refers to a concept owned elsewhere.
+- **Verticals** linked from both sides: the core lists the vertical card; the domain hub mentions the vertical.
 
 ## Safe-edit checklist
 
-- Fetched the page and the schema before writing? 
-- Preserving existing child pages on any replace?
-- Property names taken verbatim from the live schema?
-- Not writing to readonly/system properties?
-- Re-fetch after large edits to verify the result rendered as intended.
+- Fetched page, schema and library home before writing?
+- Every child page preserved on any replace?
+- Property names verbatim from the live schema; personal state untouched?
+- Re-fetched after large edits to verify rendering?

@@ -5,7 +5,8 @@ description: >-
   OS builds. Use when the user asks to audit the study library, organize or clean up the database,
   map the pages, build an index, find where something is or what is missing, find duplicate or
   overlapping notes, fix metadata, set categories and reading order, maintain the prerequisites
-  graph, check pages for consistency, or turn a curriculum into a structure to fill in. Operates
+  graph, check pages for consistency, check the database structure, keep the library conventions
+  and the Drive folder mirror aligned, or turn a curriculum into a structure to fill in. Operates
   at the COLLECTION level, not the single page: structure and consistency audits, navigation,
   metadata hygiene, the prerequisite graph, deduplication, gap analysis, and scaffolding. Detects
   any study database schema at runtime. Does NOT manage personal learning (no quizzes, no spaced
@@ -39,7 +40,7 @@ If a request is really about authoring content, say so and point to Study OS.
 | **Audit** (default) | "audit / check the library", "is it consistent?", "what's missing?" | Scans every page for structure and metadata issues, finds orphans and gaps, reports a prioritized list. Read-only. |
 | **Find** | "where is X?", "which page covers Y?", "do I have anything on Z?" | Navigates the library and answers where a topic lives, or confirms it is missing. Read-only. |
 | **Map** | "map the library", "build an index", "show the structure" | Generates or refreshes a library overview page: a categorized index and a Mermaid map of categories and prerequisites. |
-| **Organize** | "organize / clean up", "fix metadata", "set categories and reading order" | Fixes metadata, categories, reading order, related links, and the prerequisite graph. |
+| **Organize** | "organize / clean up", "fix metadata", "set categories and reading order", "check the database structure", "align the Drive folders" | Fixes metadata, categories, reading order, related links and the prerequisite graph; audits the database structure; maintains the library conventions and the Drive mirror. |
 | **Scaffold** | "turn this study plan into a structure", "create the skeleton for this curriculum", "set up pages to fill in" | Turns a study plan / curriculum into a library skeleton: a hub plus stub pages with titles, metadata, and prerequisite links, ready for Study OS to fill. |
 | **Dedupe** | "find duplicates", "what overlaps?" | Finds overlapping or redundant pages and proposes merges or scope splits. Does not delete without confirmation. |
 
@@ -60,7 +61,7 @@ Default to **Audit** when unsure; never delete or overwrite content without expl
 - **Audit:** apply `references/audit-checklist.md` to every page; collect issues by severity, including orphans and gaps. Report; do not change anything.
 - **Find:** answer a "where is X / what covers Y / do I have Z" question by searching the library (titles, descriptions, categories, content). Return the matching page links, or state plainly that nothing covers it (a gap) and offer to scaffold it.
 - **Map:** build or update a single overview/index page: pages grouped by category, a Mermaid graph of the prerequisite relations, and explicit lists of orphans (no links in or out) and gaps (expected-but-missing topics).
-- **Organize:** fix metadata using the live schema (category from existing options, scope, reading order coherent across siblings, a 1 to 2 line content description, page URL). Maintain the **Prerequisites** relation and the **Related** lines so the library forms a connected graph. Leave `Status` and `Next review` untouched.
+- **Organize:** start with the database structure audit, then fix metadata using the live schema (category from existing options, scope, reading order coherent across siblings, a 1 to 2 line content description, page URL). Maintain the **Prerequisites** relation and the **Related** lines so the library forms a connected graph. Keep the library conventions on the home page (legend, language, macro-topics, Drive mirror) in sync with the database options and the Drive folders. Leave personal state untouched. See `references/library-operations.md` -> "Library conventions".
 - **Scaffold:** take a study plan or curriculum (from the user, or implied by a topic) and build the empty structure: create a hub page and one stub page per planned item, each with a title, a one-line purpose, category/scope/reading-order metadata, and the prerequisite links between them. Stubs are intentionally empty of deep content. Then tell the user to run **Study OS** on each stub to fill it. See `references/library-operations.md` -> "Scaffolding".
 - **Dedupe:** detect pages with heavy topic overlap; propose a merge (and which to keep) or a clean scope split via Non-scope lines. Act only on confirmation.
 
@@ -79,5 +80,5 @@ Default to **Audit** when unsure; never delete or overwrite content without expl
 - **Respect the boundary:** manage the material and its organization, never the user's learning state.
 
 ## Reference files
-- `references/library-operations.md`: how to read the database, do metadata hygiene, maintain the graph, and build the map.
+- `references/library-operations.md`: library conventions, database structure audit, metadata hygiene, the graph, the map, scaffolding.
 - `references/audit-checklist.md`: the per-page and per-library checks the Audit mode runs.
